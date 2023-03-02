@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 05:35:32 by pharbst           #+#    #+#             */
-/*   Updated: 2023/03/01 05:49:25 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/03/02 07:20:56 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	PhoneBook::add_contact(void)
 	this->contacts[this->contact_count].set_first_name(first_name);
 	this->contacts[this->contact_count].set_last_name(last_name);
 	this->contacts[this->contact_count].set_nickname(nickname);
+	this->contact_count++;
 }
 
 void	PhoneBook::search_contact(void)
@@ -62,6 +63,7 @@ int main()
 	PhoneBook	phonebook;
 	std::string	command;
 
+	phonebook.contact_count = 0;
 	while (1)
 	{
 		std::cout << "Enter command: ";
