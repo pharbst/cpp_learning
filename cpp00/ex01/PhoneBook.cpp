@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 05:35:32 by pharbst           #+#    #+#             */
-/*   Updated: 2023/03/02 07:20:56 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/04/17 06:14:04 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,37 +25,64 @@ void	PhoneBook::add_contact(void)
 	std::string		first_name;
 	std::string		last_name;
 	std::string		nickname;
+	std::string		secret;
 
+	if (this->contact_index == 8)
+		this->contact_index = 0;
 	std::cout << "Enter first name: ";
 	std::getline(std::cin, first_name);
 	std::cout << "Enter last name: ";
 	std::getline(std::cin, last_name);
 	std::cout << "Enter nickname: ";
 	std::getline(std::cin, nickname);
-	this->contacts[this->contact_count].set_first_name(first_name);
-	this->contacts[this->contact_count].set_last_name(last_name);
-	this->contacts[this->contact_count].set_nickname(nickname);
-	this->contact_count++;
+	std::cout << "Enter secret: ";
+	std::getline(std::cin, secret);
+	this->contacts[this->contact_index].set_first_name(first_name);
+	this->contacts[this->contact_index].set_last_name(last_name);
+	this->contacts[this->contact_index].set_nickname(nickname);
+	this->contacts[this->contact_index].set_secret(secret);
+	this->contact_index++;
+	if (this->contact_count != 8)
+		this->contact_count++;
+}
+
+void	PhoneBook::print_contact(Contact contact)
+{
+	std::cout << "first name: ";
+	contact.print_first_name();
+	std::cout << std::endl;
+	std::cout << "last name: ";
+	contact.print_last_name();
+	std::cout << std::endl;
+	std::cout << "nickname: ";
+	contact.print_nickname();
+	std::cout << std::endl;
+	std::cout << "secret: ";
+	contact.print_secret();
+	std::cout << std::endl;
 }
 
 void	PhoneBook::search_contact(void)
 {
-	std::cout << "index	|first name	|last name	|nickname" << std::endl;
-	this->contacts[0].print();
-}
-
-void	PhoneBook::print(void)
-{
-	std::cout << "index		|first name	|last name	|nickname" << std::endl;
-	std::cout << "--------------------------------------------------------------" << std::endl;
-	std::cout << "0		|" << this->contacts[0].first_name << "		|" << this->contacts[0].last_name << "		|" << this->contacts[0].nickname << std::endl;
-	std::cout << "1		|" << this->contacts[1].first_name << "		|" << this->contacts[1].last_name << "		|" << this->contacts[1].nickname << std::endl;
-	std::cout << "2		|" << this->contacts[2].first_name << "		|" << this->contacts[2].last_name << "		|" << this->contacts[2].nickname << std::endl;
-	std::cout << "3		|" << this->contacts[3].first_name << "		|" << this->contacts[3].last_name << "		|" << this->contacts[3].nickname << std::endl;
-	std::cout << "4		|" << this->contacts[4].first_name << "		|" << this->contacts[4].last_name << "		|" << this->contacts[4].nickname << std::endl;
-	std::cout << "5		|" << this->contacts[5].first_name << "		|" << this->contacts[5].last_name << "		|" << this->contacts[5].nickname << std::endl;
-	std::cout << "6		|" << this->contacts[6].first_name << "		|" << this->contacts[6].last_name << "		|" << this->contacts[6].nickname << std::endl;
-	std::cout << "7		|" << this->contacts[7].first_name << "		|" << this->contacts[7].last_name << "		|" << this->contacts[7].nickname << std::endl;
+	std::cout << "index     |first name|last name " << std::endl;
+	std::cout << "---------------------------------" << std::endl;
+	for (int i = 0; i < this->contact_count; i++)
+	{
+		std::cout << i << "         |";
+		this->contacts[i].print_first_name();
+		std::cout << "|";
+		this->contacts[i].print_last_name();
+		std::cout << std::endl;
+	}
+	std::string		index;
+	int				index_int;
+	std::cout << "Enter index: ";
+	std::getline(std::cin, index);
+	index_int = std::atoi(index.c_str());
+	if (index_int <= this->contact_count)
+		print_contact(this->contacts[index_int]);
+	else
+		std::cout << "Invalid index" << std::endl;
 }
 
 int main()
@@ -64,6 +91,7 @@ int main()
 	std::string	command;
 
 	phonebook.contact_count = 0;
+	phonebook.contact_index = 0;
 	while (1)
 	{
 		std::cout << "Enter command: ";
@@ -72,8 +100,6 @@ int main()
 			phonebook.add_contact();
 		else if (command == "SEARCH" || command == "search")
 			phonebook.search_contact();
-		else if (command == "PRINT" || command == "print")
-			phonebook.print();
 		else if (command == "EXIT" || command == "exit")
 			break ;
 		else
