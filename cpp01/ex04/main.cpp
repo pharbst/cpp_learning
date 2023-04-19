@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:12:26 by pharbst           #+#    #+#             */
-/*   Updated: 2023/04/19 09:53:11 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/04/19 10:03:04 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,10 @@ class	FileEditor
 
 int	main(int argc, char *argv[])
 {
-	std::string	filename;
-	std::string	from;
-	std::string	to;
+	std::string	filename, from, to;
 
 	if (argc == 1)
 	{
-		std::string	filename, from, to;
 		std::cout << "enter fileName: ";
 		std::cin >> filename;
 		std::cout << std::endl << "enter string to replace: ";
