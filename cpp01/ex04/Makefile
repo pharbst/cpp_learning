@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+         #
+#    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/04/17 15:10:34 by pharbst          ###   ########.fr        #
+#    Updated: 2023/04/19 10:00:19 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,12 @@ $(OBJ_DIR)%.o: %.cpp
 
 clean:
 	rm -rf $(OBJ_DIR)
+	rm *.replace
 
 fclean:
 	rm -rf $(OBJ_DIR)
 	rm -f $(PRONAME)
+	rm *.replace
 
 re: fclean all
 
