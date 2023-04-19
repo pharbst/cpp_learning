@@ -1,0 +1,12 @@
+This is a test file for sed.
+It contains several lines of text.
+Each line has at least one occurrence of the word "test".
+This is the last line of the file.
+Here are some specialcases testing the functionallity of sedForLoosers the testcases are:
+testing tests
+testcasestest
+testtest
+Test
+TestTest
+caseTest
+casetest
