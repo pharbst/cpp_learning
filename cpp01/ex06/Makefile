@@ -6,17 +6,17 @@
 #    By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/05/11 07:53:37 by pharbst          ###   ########.fr        #
+#    Updated: 2023/05/11 07:52:36 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PRONAME = BraiiiiiiinnnzzzZ
+PRONAME = harlFilter
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp Harl.cpp
 
 OBJ_DIR = ./obj/
 
