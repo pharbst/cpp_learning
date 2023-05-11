@@ -6,11 +6,13 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 05:35:32 by pharbst           #+#    #+#             */
-/*   Updated: 2023/04/17 06:14:04 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/11 08:28:06 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+//this is just for linux
+#include <cstdlib>
 
 PhoneBook::PhoneBook()
 {

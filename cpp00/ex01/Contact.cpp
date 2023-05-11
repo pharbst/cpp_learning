@@ -6,11 +6,13 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 05:12:36 by pharbst           #+#    #+#             */
-/*   Updated: 2023/04/17 06:02:22 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/11 08:28:18 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+//this is just for linux
+#include <cstring>
 
 Contact::Contact()
 {

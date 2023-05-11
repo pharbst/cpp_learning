@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:12:26 by pharbst           #+#    #+#             */
-/*   Updated: 2023/04/19 10:03:04 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/11 08:37:01 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ class	FileEditor
 
 		void		Replace()
 		{
-			std::ifstream	fileIn(_filename);
+			std::ifstream	fileIn(_filename.c_str());
 			if (!fileIn.is_open())
 			{
 				std::cerr << "Error: could not open file" << _filename << std::endl;
 				return ;
 			}
-			std::ofstream	fileOut(_fileOutName);
+			std::ofstream	fileOut(_fileOutName.c_str());
 			if (!fileOut.is_open())
 			{
 				std::cerr << "Error: could not open file" << _fileOutName << std::endl;
