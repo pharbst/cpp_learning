@@ -6,17 +6,17 @@
 #    By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/05/05 02:13:10 by pharbst          ###   ########.fr        #
+#    Updated: 2023/05/05 02:41:45 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PRONAME = MyPhonebook
+PRONAME = Harl_2.0
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = Contact.cpp PhoneBook.cpp
+SRCS = main.cpp Harl.cpp
 
 OBJ_DIR = ./obj/
 
