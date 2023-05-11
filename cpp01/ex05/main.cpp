@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:03:46 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/11 07:12:50 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/11 07:59:06 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int	main(void)
 	harl.complain("ERROR");
 	std::cout << "\033[1;33mHarl complains on wrong level\033[1;31m" << std::endl;
 	harl.complain("WRONG");
+	std::cout << "\033[0m";
 	return (0);
 }
