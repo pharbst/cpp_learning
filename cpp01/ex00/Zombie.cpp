@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:42:07 by pharbst           #+#    #+#             */
-/*   Updated: 2023/04/17 13:51:56 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/16 10:59:59 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ Zombie::Zombie()
 // destructor
 Zombie::~Zombie()
 {
-	std::cout << "Zombie got a headshot" << std::endl;
+	std::cout << _name << " got a headshot" << std::endl;
 }
 
 // member functions
 void	Zombie::announce()
 {
-	std::cout << "<" << this->_name << "> Braiiiiiiinnnssss..." << std::endl;
+	std::cout << this->_name << ": Braiiiiiiinnnssss..." << std::endl;
 }
 
 void	Zombie::setName(std::string name)
