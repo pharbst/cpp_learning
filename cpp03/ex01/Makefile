@@ -6,17 +6,17 @@
 #    By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/05/11 10:32:04 by pharbst          ###   ########.fr        #
+#    Updated: 2023/05/16 18:23:09 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PRONAME = Fixed
+PRONAME = ScavTrap
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Fixed.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJ_DIR = ./obj/
 
