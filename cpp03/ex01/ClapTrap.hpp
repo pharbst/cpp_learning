@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:16:54 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/16 16:21:18 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/17 08:52:47 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,23 @@ class	ClapTrap
 		void attack(std::string const & target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+		void gainEnergy(unsigned int amount);
+
+		std::string		getName(void) const;
+		unsigned int	getHitpoints(void) const;
+		unsigned int	getEnergyPoints(void) const;
+		unsigned int	getAttackDamage(void) const;
+		unsigned int	getRepairStrength(void) const;
 		
-	protected:
-		std::string _name;
-		int _hitpoints;
-		int _energyPoints;
-		int _attackDamage;
+	private:
+		std::string		_name;
+		unsigned int	_hitpoints;
+		unsigned int	_energyPoints;
+		unsigned int	_attackDamage;
+		unsigned int	_maxHitpoints;
+		unsigned int	_repairStrength;
 };
+
+std::ostream& operator << (std::ostream& out, ClapTrap const & ref);
 
 #endif
