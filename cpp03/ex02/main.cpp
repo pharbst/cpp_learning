@@ -6,16 +6,16 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:21:40 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/17 09:49:44 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/17 09:50:28 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 // #include <unistd.h>
 
 int	main(void){
-	ScavTrap a("ScrapTrap");
-	ScavTrap b("Robot");
+	FragTrap a("ScrapTrap");
+	FragTrap b("Robot");
 
 	std::cout << a << std::endl << b << std::endl;
 
@@ -68,10 +68,17 @@ int	main(void){
 	std::cout << std::endl << "The battle is over" << std::endl;
 
 	std::cout << a << std::endl << b << std::endl;
-	if (a.getHitpoints() > b.getHitpoints())
+	if (a.getHitpoints() > b.getHitpoints()){
 		std::cout << a.getName() << " is the winner!!!" << std::endl;
-	else if (a.getHitpoints() < b.getHitpoints())
+		b.highFivesGuys();
+	}
+	else if (a.getHitpoints() < b.getHitpoints()){
 		std::cout << b.getName() << " is the winner!!!" << std::endl;
-	else
+		a.highFivesGuys();
+	}
+	else{
 		std::cout << "It's a draw!!!" << std::endl;
+		a.highFivesGuys();
+		b.highFivesGuys();
+	}
 }
