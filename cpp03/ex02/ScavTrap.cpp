@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:35:24 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/17 09:25:34 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/17 09:59:08 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScavTrap::~ScavTrap(void){
 	std::cout << "\033[1;31mScavTrap Destructor called\033[0m" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const & ref){
+ScavTrap::ScavTrap(ScavTrap const & ref) : ClapTrap(ref){
 	std::cout << "\033[0;32mScavTrap Copy Constructor called\033[0m" << std::endl;
 	*this = ref;
 }

@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 09:32:45 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/17 09:47:34 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/17 09:59:27 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ FragTrap::~FragTrap(void){
 	std::cout << "\033[1;31mFragTrap Destructor called\033[0m" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& ref){
+FragTrap::FragTrap(const FragTrap& ref) : ScavTrap(ref){
 	std::cout << "\033[0;32mFragTrap Copy Constructor called\033[0m" << std::endl;
 	*this = ref;
 }
