@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 12:20:54 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/17 17:20:49 by pharbst          ###   ########.fr       */
+/*   Created: 2023/05/19 10:21:09 by pharbst           #+#    #+#             */
+/*   Updated: 2023/05/19 14:59:15 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#ifndef _IOSTREAM_
-# define _IOSTREAM_
-#include <iostream>
-#endif
+# include <iostream>
+# include <cstring>
 
-class WrongAnimal{
+class	Brain{
 	public:
-		WrongAnimal(void);
-		WrongAnimal(std::string type);
-		WrongAnimal(WrongAnimal const &old);
-		WrongAnimal& operator=(const WrongAnimal& old);
-		~WrongAnimal(void);
+		Brain(void);
+		Brain(const Brain& ref);
+		Brain& operator = (const Brain& ref);
+		~Brain(void);
 
-		std::string	getType(void) const;
-		void	makeSound(void) const;
+		std::string getIdea(int i) const;
+		void		setIdea(int i, std::string idea);
 
-	protected:
-		std::string	_type;
+	private:
+		std::string _ideas[100];
 };
 
 #endif

@@ -6,14 +6,17 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:20:54 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/17 16:56:40 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/19 10:22:06 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
+#ifndef _IOSTREAM_
+# define _IOSTREAM_
 #include <iostream>
+#endif
 
 class Animal{
 	public:

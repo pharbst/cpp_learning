@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 12:20:54 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/17 17:20:49 by pharbst          ###   ########.fr       */
+/*   Created: 2023/05/17 12:30:15 by pharbst           #+#    #+#             */
+/*   Updated: 2023/05/19 15:03:47 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#ifndef _IOSTREAM_
-# define _IOSTREAM_
-#include <iostream>
-#endif
+# include "Animal.hpp"
+# include "Brain.hpp"
+# include <cstring>
 
-class WrongAnimal{
+class Dog : public Animal{
 	public:
-		WrongAnimal(void);
-		WrongAnimal(std::string type);
-		WrongAnimal(WrongAnimal const &old);
-		WrongAnimal& operator=(const WrongAnimal& old);
-		~WrongAnimal(void);
+		Dog(void);
+		Dog(const Dog& ref);
+		Dog& operator=(const Dog& ref);
+		virtual ~Dog(void);
 
-		std::string	getType(void) const;
-		void	makeSound(void) const;
+		virtual void	makeSound(void) const;
+		void	PrintIdeas(void) const;
+		void	importIdea(int i, std::string idea);
 
-	protected:
-		std::string	_type;
+	private:
+		Brain*	_brain;
 };
 
 #endif
