@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:33:34 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/20 18:00:14 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/20 19:21:33 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ const std::string& Character::getName() const{
 }
 
 AMateria*	Character::equip(AMateria* m){
-	for (int i = 0; i < 4 && _inventory[i] != NULL; i++)
-		if (i < 4 && _inventory[i] == NULL){
-			_inventory[i] = m;
-			return NULL;
-		}
+	int	i = 0;
+	while (_inventory[i] != NULL && i < 4)
+		i++;
+	if (i == 4)
+		return NULL;
+	_inventory[i] = m;
 	return m;
 }
 

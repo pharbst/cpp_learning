@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 18:06:29 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/20 18:11:38 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/20 19:24:39 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,12 @@ int main(){
 	Character*	bob = new Character("bob");
 	
 	tmp = new Ice();
-	me->equip(tmp);
 	tmp2 = new Cure();
 	me->equip(tmp);
-	me->use(0, *bob);
-	me->use(1, *bob);
-	me->unequip(0);
+	me->equip(tmp2);
 	me->use(0, *bob);
 	me->use(1, *bob);
 	delete bob;
 	delete me;
-	delete tmp;
-	delete tmp2;
 	return 0;
 }

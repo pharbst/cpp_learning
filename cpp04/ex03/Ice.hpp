@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 15:58:31 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/20 17:55:16 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/20 18:41:37 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ class	Ice : public AMateria{
 		
 		AMateria* clone() const;
 		void use(ICharacter& target);
-	private:
-		std::string _type;
 };
 
 #endif
