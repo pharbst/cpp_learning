@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 10:03:20 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/15 00:06:45 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/22 13:42:30 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class	Fixed
 		void				setRawBits(int const raw);
 
 	private:
-		int					FixedPoint;
+		int					_FixedPoint;
 };
 
 	std::ostream& operator << (std::ostream& os, const Fixed &src);

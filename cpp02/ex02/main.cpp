@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 07:12:03 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/16 15:35:01 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/22 14:15:31 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void){
 	std::cout << "\033[1;35mdeclared b with value 42.42\033[0m" << std::endl;
 	Fixed	c;
 	std::cout << "\033[1;35mdeclared c\033[0m" << std::endl;
-	a = (Fixed(0));
+	a = (Fixed(1234.4321f));
 	std::cout << "\033[1;35ma = Fixed(1234.4321)\033[0m" << std::endl;
 
 	c = a;

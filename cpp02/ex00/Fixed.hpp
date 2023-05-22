@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 10:03:20 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/11 10:32:44 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/22 13:29:11 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class	Fixed
 		void setRawBits(int const raw);
 
 	private:
-		int					FixedPoint;
-		static int const	NumberOfBits = 8;
+		int					_FixedPoint;
+		static int const	_NumberOfBits = 8;
 };
 
 #endif

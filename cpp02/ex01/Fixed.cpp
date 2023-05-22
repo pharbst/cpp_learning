@@ -6,59 +6,56 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 10:03:26 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/15 02:47:59 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/22 13:45:26 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
 
-Fixed::Fixed(void){
-	std::cout << "Default constructer called" << std::endl;
-	FixedPoint = 0;
+Fixed::Fixed(void) : _FixedPoint(0){
+	std::cout << "\033[1;32mDefault constructer called\033[0m" << std::endl;
 }
 
-Fixed::Fixed(int const raw){
-	std::cout << "Int constructer called" << std::endl;
-	FixedPoint = raw;
+Fixed::Fixed(int const raw) : _FixedPoint(raw << NumberOfBits){
+	std::cout << "\033[1;32mInt constructer called\033[0m" << std::endl;
 }
 
-Fixed::Fixed(float const raw) : FixedPoint(roundf(raw * (1 << NumberOfBits))){
-	std::cout << "Float constructer called" << std::endl;
+Fixed::Fixed(float const raw) : _FixedPoint(roundf(raw * (1 << NumberOfBits))){
+	std::cout << "\033[1;32mFloat constructer called\033[0m" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& copy){
-	std::cout << "Copy constructer called" << std::endl;
-	this->FixedPoint = copy.FixedPoint;
+Fixed::Fixed(const Fixed& copy) : _FixedPoint(copy._FixedPoint){
+	std::cout << "\033[1;32mCopy constructer called\033[0m" << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& src){
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "\033[1;32mCopy assignment operator called\033[0m" << std::endl;
 	if (this != &src)
-		FixedPoint = src.getRawBits();
+		_FixedPoint = src.getRawBits();
 	return *this;
 }
 
 Fixed::~Fixed(){
-	std::cout << "Default deconstructor called" << std::endl;
+	std::cout << "\033[1;31mDefault deconstructor called\033[0m" << std::endl;
 }
 
 int	Fixed::getRawBits(void) const{
-	std::cout << "getRawBits member function called" << std::endl;
-	return FixedPoint;
+	std::cout << "\033[0;33mgetRawBits member function called\033[0m" << std::endl;
+	return _FixedPoint;
 }
 
 void	Fixed::setRawBits(int const raw){
-	std::cout << "setRawBits member function called" << std::endl;
-	FixedPoint = raw;
+	std::cout << "\033[0;33msetRawBits member function called\033[0m" << std::endl;
+	_FixedPoint = raw;
 }
 
 int	Fixed::toInt() const{
-	return FixedPoint >> NumberOfBits;
+	return _FixedPoint >> NumberOfBits;
 }
 
 float	Fixed::toFloat() const{
-	return static_cast<float>(FixedPoint / static_cast<float>(1 << NumberOfBits));
+	return static_cast<float>(_FixedPoint / static_cast<float>(1 << NumberOfBits));
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& src){
