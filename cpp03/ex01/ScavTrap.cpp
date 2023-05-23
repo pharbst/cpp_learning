@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:45:00 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/23 18:24:04 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/23 18:30:12 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Scavtrap.hpp"
+#include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(void){
 	std::cout << "\033[1;32mScavTrap Default Constructor called\033[0m" << std::endl;

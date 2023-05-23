@@ -5,20 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 09:33:02 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/17 09:48:27 by pharbst          ###   ########.fr       */
+/*   Created: 2023/05/23 17:41:12 by pharbst           #+#    #+#             */
+/*   Updated: 2023/05/23 19:03:39 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-class	FragTrap : public ScavTrap{
+#include "ClapTrap.hpp"
+
+class	FragTrap : public ClapTrap{
 	public:
-		FragTrap();
-		FragTrap(std::string name);
+		FragTrap(void);
+		FragTrap(const std::string name);
 		FragTrap(const FragTrap& ref);
-		FragTrap& operator=(const FragTrap& ref);
+		FragTrap& operator = (FragTrap const & ref);
 		~FragTrap();
 
-		void	highFivesGuys(void);
+		void attack(void);
+		void highFivesGuys(void);
 };
+
+#endif
