@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clapTrap.cpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:02:05 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/16 16:27:29 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/23 17:18:28 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void){
+ClapTrap::ClapTrap(void) : _name("Default"), _hitpoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "\003[0;32mDefault Constructor called\033[0m" << std::endl;
-	_name = "Default";
-	_hitpoints = 10;
-	_energyPoints = 10;
-	_attackDamage = 0;
 }
 
-ClapTrap::ClapTrap(std::string name){
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "\033[0;32mConstructor called\033[0m" << std::endl;
-	_name = name;
-	_hitpoints = 10;
-	_energyPoints = 10;
-	_attackDamage = 0;
 }
 
 ClapTrap::~ClapTrap(void){

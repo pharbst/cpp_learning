@@ -5,81 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:35:24 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/17 09:58:28 by pharbst          ###   ########.fr       */
+/*   Created: 2023/05/23 17:45:00 by pharbst           #+#    #+#             */
+/*   Updated: 2023/05/23 18:24:04 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-
-/**************************************************************/
-/*                     Constructors                           */
-/**************************************************************/
+#include "Scavtrap.hpp"
 
 ScavTrap::ScavTrap(void){
-	std::cout << "\033[0;32mScavTrap Default Constructor called\033[0m" << std::endl;
-	_guardGateMode = false;
+	std::cout << "\033[1;32mScavTrap Default Constructor called\033[0m" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
-	std::cout << "\033[0;32mScavTrap Constructor called\033[0m" << std::endl;
-	_guardGateMode = false;
+	std::cout << "\033[1;32mScavTrap Constructor called\033[0m" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& ref) : ClapTrap(ref){
+	std::cout << "\033[1;32mScavTrap Copy Constructor called\033[0m" << std::endl;
+	*this = ref;
+}
+
+ScavTrap&	ScavTrap::operator=(const ScavTrap& ref){
+	std::cout << "\033[0;32mScavTrap Copy assignment operator called\033[0m" << std::endl;
+	ClapTrap::operator=(ref);
+	return *this;
 }
 
 ScavTrap::~ScavTrap(void){
 	std::cout << "\033[1;31mScavTrap Destructor called\033[0m" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& ref) : ClapTrap(ref){
-	std::cout << "\033[0;32mScavTrap Copy Constructor called\033[0m" << std::endl;
-	*this = ref;
+void	ScavTrap::attack(void){
+	std::cout << "\033[1;35mScavTrap " << _name << " attacks " << "target" << ", causing " << _attackDamage << " points of damage!\033[0m" << std::endl;
 }
 
-ScavTrap& ScavTrap::operator = (const ScavTrap& ref){
-	std::cout << "\033[0;32mScavTrap Copy assignment operator called\033[0m" << std::endl;
-	if (this != &ref)
-	{
-		_guardGateMode = ref._guardGateMode;
-		ClapTrap::operator=(ref);
-	}
-	return (*this);
-}
-
-/**************************************************************/
-/*                      Member Functions                      */
-/**************************************************************/
-
-void	ScavTrap::attack(ScavTrap& target){
-	if (_guardGateMode)
-		std::cout << getName() << " cannot attack while in guardGateMode!" << std::endl;
-	else{
-		ClapTrap::attack(target.getName());
-		target.takeDamage(getAttackDamage());
-	}
-}
-
-void	ScavTrap::takeDamage(int AtkDmg){
-	if (_guardGateMode){
-		std::cout << getName() << " DMG is reduced by 50% while in guardGateMode!" << std::endl;
-		ClapTrap::takeDamage(AtkDmg / 2);
-	}
-	else
-		ClapTrap::takeDamage(AtkDmg);
-}
-
-void	ScavTrap::beRepaired(){
-	if (_guardGateMode){
-		std::cout << ClapTrap::getName() << " repair whithout energy while in guardGateMode!" << std::endl;
-		ClapTrap::beRepaired(ClapTrap::getRepairStrength());
-		ClapTrap::gainEnergy(1);
-	}
-	else
-		ClapTrap::beRepaired(ClapTrap::getRepairStrength());
-}
-
-void	ScavTrap::guardGate(){
-	if (_guardGateMode)
-		_guardGateMode = false;
-	else
-		_guardGateMode = true;
+void	ScavTrap::guardGate(void){
+	std::cout << "\033[1;35mScavTrap " << _name << " has entered in Gate keeper mode\033[0m" << std::endl;
 }

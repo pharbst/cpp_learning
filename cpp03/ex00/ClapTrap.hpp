@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:16:54 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/16 16:21:18 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/23 17:40:40 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #ifndef CLAPTRAP_H
 # define CLAPTRAP_H
@@ -30,7 +28,7 @@ class	ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 		
-	protected:
+	private:
 		std::string _name;
 		int _hitpoints;
 		int _energyPoints;
