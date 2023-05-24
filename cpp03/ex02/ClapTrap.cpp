@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:02:05 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/23 19:50:10 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/24 14:33:42 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,32 @@ ClapTrap& ClapTrap::operator = (ClapTrap const & ref){
 }
 
 void ClapTrap::attack(std::string const & target){
+	if (_energyPoints <= 0){
+		std::cout << "\033[0;31mClapTrap " << _name << " can't attack, it's out of energy!\033[0m" << std::endl;
+		return ;
+	}
 	std::cout << "\033[0;33mClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!\033[0m" << std::endl;
 	_energyPoints--;
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
+	if (_hitpoints - amount <= 0){
+		_hitpoints = 0;
+		std::cout << "\033[0;31mClapTrap " << _name << " is dead!\033[0m" << std::endl;
+		return ;
+	}
 	std::cout << "\033[0;33mClapTrap " << this->_name << " takes " << amount << " points of damage!\033[0m" << std::endl;
+	_hitpoints -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-	std::cout << "\033[0;33mClapTrap " << this->_name << " is repaired for " << amount << " points of damage!\033[0m" << std::endl;
-	_energyPoints--;
+	if (_hitpoints <= 0)
+		std::cout << "\033[0;31mClapTrap " << _name << " can't be repaired, it's dead!\033[0m" << std::endl;
+	else if (_energyPoints <= 0)
+		std::cout << "\033[0;31mClapTrap " << _name << " can't be repaired, it's out of energy!\033[0m" << std::endl;
+	else{
+		std::cout << "\033[0;33mClapTrap " << this->_name << " is repaired for " << amount << " points of damage!\033[0m" << std::endl;
+		_energyPoints--;
+		_hitpoints += amount;
+	}
 }
