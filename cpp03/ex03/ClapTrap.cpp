@@ -6,17 +6,17 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:02:05 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/23 19:50:10 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/24 13:33:17 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _name("Default"), _hitpoints(100), _energyPoints(100), _attackDamage(30){
+ClapTrap::ClapTrap(void) : _name("Default"), _hitpoints(100), _energyPoints(50), _attackDamage(30){
 	std::cout << "\033[0;32mDefault Constructor called\033[0m" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(100), _energyPoints(100), _attackDamage(30){
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(100), _energyPoints(50), _attackDamage(30){
 	std::cout << "\033[0;32mConstructor called\033[0m" << std::endl;
 }
 
@@ -31,10 +31,10 @@ ClapTrap::ClapTrap(ClapTrap const & ref){
 
 ClapTrap& ClapTrap::operator = (ClapTrap const & ref){
 	std::cout << "\033[0;32mCopy assignment operator called\033[0m" << std::endl;
-	this->_name = ref._name;
-	this->_hitpoints = ref._hitpoints;
-	this->_energyPoints = ref._energyPoints;
-	this->_attackDamage = ref._attackDamage;
+	_name = ref._name;
+	_hitpoints = ref._hitpoints;
+	_energyPoints = ref._energyPoints;
+	_attackDamage = ref._attackDamage;
 	return (*this);
 }
 
