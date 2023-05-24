@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:18:46 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/24 13:25:44 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/24 14:52:28 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class	DiamondTrap : public ScavTrap, public FragTrap{
 		~DiamondTrap();
 
 		using	ScavTrap::attack;
-		// void	attack(void);
 		void	whoAmI(void);
 
 	private:
