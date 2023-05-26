@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:41:12 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/23 20:06:08 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/26 11:46:14 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	ScavTrap : virtual public ClapTrap{
 		ScavTrap(void);
 		ScavTrap(const std::string name);
 		ScavTrap(const ScavTrap& ref);
-		ScavTrap& operator = (ScavTrap const & ref);
+		ScavTrap& operator = (const ScavTrap& ref);
 		~ScavTrap();
 
 		void attack(void);

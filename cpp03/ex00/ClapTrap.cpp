@@ -6,14 +6,14 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:02:05 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/26 11:33:17 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/26 11:40:01 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void) : _name("Default"), _hitpoints(10), _energyPoints(10), _attackDamage(0){
-	std::cout << "\003[0;32mDefault Constructor called\033[0m" << std::endl;
+	std::cout << "\033[0;32mDefault Constructor called\033[0m" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(10), _energyPoints(10), _attackDamage(0){
@@ -24,7 +24,7 @@ ClapTrap::~ClapTrap(void){
 	std::cout << "\033[1;31mDestructor called\033[0m" << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const & ref){
+ClapTrap::ClapTrap(const ClapTrap& ref){
 	std::cout << "\033[0;32mCopy Constructor called\033[0m" << std::endl;
 	*this = ref;
 }
@@ -38,7 +38,7 @@ ClapTrap& ClapTrap::operator = (ClapTrap const & ref){
 	return (*this);
 }
 
-void ClapTrap::attack(std::string const & target){
+void ClapTrap::attack(const std::string& target){
 	if (_energyPoints <= 0){
 		std::cout << "\033[0;31mClapTrap " << _name << " can't attack, it's out of energy!\033[0m" << std::endl;
 		return ;

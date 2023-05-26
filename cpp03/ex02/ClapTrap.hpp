@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:16:54 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/23 17:40:37 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/26 11:43:40 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ class	ClapTrap
 	public:
 		ClapTrap();
 		ClapTrap(std::string name);
-		ClapTrap(ClapTrap const & ref);
-		ClapTrap& operator = (ClapTrap const & ref);
+		ClapTrap(const ClapTrap& ref);
+		ClapTrap& operator = (const ClapTrap& ref);
 		~ClapTrap();
 		
-		void attack(std::string const & target);
+		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 		

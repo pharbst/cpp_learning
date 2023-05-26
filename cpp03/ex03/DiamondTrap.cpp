@@ -6,16 +6,16 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:41:24 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/24 14:52:18 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/26 11:45:16 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap(){
-	this->FragTrap::_hitpoints = 100;
-	this->ScavTrap::_energyPoints = 50;
-	this->FragTrap::_attackDamage = 30;
+	FragTrap::_hitpoints = 100;
+	ScavTrap::_energyPoints = 50;
+	FragTrap::_attackDamage = 30;
 	std::cout << "\033[1;32mDiamondTrap Default Constructor called\033[0m" << std::endl;
 }
 
@@ -31,7 +31,7 @@ DiamondTrap::~DiamondTrap(){
 	std::cout << "\033[1;31mDiamondTrap Destructor called\033[0m" << std::endl;
 }
 
-DiamondTrap& DiamondTrap::operator = (DiamondTrap const & ref){
+DiamondTrap& DiamondTrap::operator = (const DiamondTrap& ref){
 	std::cout << "\033[1;33mDiamondTrap Assignation Operator called\033[0m" << std::endl;
 	if (this == &ref)
 		return (*this);
