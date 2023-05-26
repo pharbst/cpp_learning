@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:02:05 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/26 11:40:01 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/26 13:38:27 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(const ClapTrap& ref){
 	*this = ref;
 }
 
-ClapTrap& ClapTrap::operator = (ClapTrap const & ref){
+ClapTrap& ClapTrap::operator = (const ClapTrap& ref){
 	std::cout << "\033[0;32mCopy assignment operator called\033[0m" << std::endl;
 	_name = ref._name;
 	_hitpoints = ref._hitpoints;

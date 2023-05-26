@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:45:00 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/26 11:37:22 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/26 13:40:33 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,12 @@ ScavTrap::~ScavTrap(void){
 }
 
 void	ScavTrap::attack(void){
-	std::cout << "\033[1;35mScavTrap " << _name << " attacks " << "target" << ", causing " << _attackDamage << " points of damage!\033[0m" << std::endl;
+	if (_energyPoints > 0){
+		_energyPoints--;
+		std::cout << "\033[1;35mScavTrap " << _name << " attacks " << "target" << ", causing " << _attackDamage << " points of damage!\033[0m" << std::endl;
+	}
+	else
+		std::cout << "\033[1;35mScavTrap " << _name << " has no energy points left to attack\033[0m" << std::endl;
 }
 
 void	ScavTrap::guardGate(void){

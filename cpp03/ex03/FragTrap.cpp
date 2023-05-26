@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:45:00 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/26 11:37:05 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/26 13:41:35 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,12 @@ FragTrap::~FragTrap(void){
 }
 
 void	FragTrap::attack(void){
-	std::cout << "\033[1;35mFragTrap " << _name << " attacks " << "target" << ", causing " << _attackDamage << " points of damage!\033[0m" << std::endl;
+	if (_energyPoints > 0){
+		_energyPoints--;
+		std::cout << "\033[1;35mFragTrap " << _name << " attacks " << "target" << ", causing " << _attackDamage << " points of damage!\033[0m" << std::endl;
+	}
+	else
+		std::cout << "\033[1;35mFragTrap " << _name << " has no energy points left to attack\033[0m" << std::endl;
 }
 
 void	FragTrap::highFivesGuys(void){
