@@ -13,24 +13,24 @@
 #include "WrongCat.hpp"
 
 WrongCat::WrongCat(void) : WrongAnimal(std::string("WrongCat")){
-	std::cout << "WrongCat Default Constructor called" << std::endl;
+	std::cout << "\033[0;32mWrongCat Default Constructor called\033[0m" << std::endl;
 }
 
 WrongCat::WrongCat(WrongCat const &old){
-	std::cout << "WrongCat Copy Constructor called" << std::endl;
+	std::cout << "\033[0;32mWrongCat Copy Constructor called\033[0m" << std::endl;
 	*this = old;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& old){
-	std::cout << "WrongCat Assignation called" << std::endl;
+	std::cout << "\033[0;32mWrongCat Assignation called\033[0m" << std::endl;
 	WrongAnimal::operator=(old);
 	return *this;
 }
 
 WrongCat::~WrongCat(void){
-	std::cout << "WrongCat Destructor called" << std::endl;
+	std::cout << "\033[1;31mWrongCat Destructor called\033[0m" << std::endl;
 }
 
 void	WrongCat::makeSound(void) const{
-	std::cout << "Miauuu" << std::endl;
+	std::cout << "\033[1;33mMiauuu\033[0m" << std::endl;
 }

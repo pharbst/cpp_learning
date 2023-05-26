@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 16:33:34 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/20 19:21:33 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/24 14:58:35 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ AMateria*	Character::unequip(int index){
 }
 
 void	Character::use(int index, ICharacter& target){
+	if (index < 0 || index > 3 || _inventory[index] == NULL)
+		return ;
 	_inventory[index]->use(target);
 }

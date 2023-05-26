@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:51:53 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/17 17:40:40 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/26 15:12:32 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ int	main(){
 	wronganimal->makeSound();
 	delete wrongkitty;
 	delete wronganimal;
+	return 0;
 }

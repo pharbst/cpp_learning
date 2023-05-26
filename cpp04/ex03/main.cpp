@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 18:06:29 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/20 19:24:39 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/24 14:58:04 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(){
 	tmp2 = new Cure();
 	me->equip(tmp);
 	me->equip(tmp2);
-	me->use(0, *bob);
+	me->use(-7, *bob);
 	me->use(1, *bob);
 	delete bob;
 	delete me;
