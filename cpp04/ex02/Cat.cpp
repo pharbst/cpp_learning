@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:34:13 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/17 16:56:19 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/05/28 15:45:46 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Cat::Cat(void) : Animal(std::string("Cat")){
 	std::cout << "Cat Default Constructor called" << std::endl;
 }
 
-Cat::Cat(Cat const &old){
+Cat::Cat(Cat const &old) : Animal(old){
 	std::cout << "Cat Copy Constructor called" << std::endl;
 	*this = old;
 }

@@ -16,7 +16,7 @@ WrongCat::WrongCat(void) : WrongAnimal(std::string("WrongCat")){
 	std::cout << "\033[0;32mWrongCat Default Constructor called\033[0m" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const &old){
+WrongCat::WrongCat(WrongCat const &old) : WrongAnimal(old){
 	std::cout << "\033[0;32mWrongCat Copy Constructor called\033[0m" << std::endl;
 	*this = old;
 }
