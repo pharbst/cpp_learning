@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 11:01:42 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/29 11:03:31 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/05 16:53:57 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@
 #include <iostream>
 class AMateria;
 
-class IMateriaSource
-{
+class IMateriaSource {
     public:
-        virtual ~IMateriaSource() {}
+        virtual ~IMateriaSource();
         virtual void learnMateria(AMateria*) = 0;
-        virtual AMateria* createMateria(std::string const & type) = 0;
+        virtual AMateria* createMateria(const std::string& type) = 0;
 };
 
 #endif

@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/05/20 18:09:57 by pharbst          ###   ########.fr        #
+#    Updated: 2023/06/05 16:53:37 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRCS = AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp Character.cpp main.cpp
+SRCS = AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp Character.cpp IMateriaSource.cpp MateriaSource.cpp main.cpp
 
 OBJ_DIR = ./obj/
 
