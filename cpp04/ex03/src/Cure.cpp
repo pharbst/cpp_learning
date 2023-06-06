@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 16:01:47 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/20 18:42:51 by pharbst          ###   ########.fr       */
+/*   Created: 2023/06/06 16:09:26 by pharbst           #+#    #+#             */
+/*   Updated: 2023/06/06 18:14:54 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#include "Cure.hpp"
 
-# include "AMateria.hpp"
-# include "Ice.hpp"
+Cure::Cure() : AMateria("cure") {
+}
 
-class	Cure : public AMateria{
-	public:
-		Cure();
-		Cure(const Cure& ref);
-		virtual ~Cure();
+Cure::~Cure(){
+}
 
-		AMateria* clone() const;
-		void use(ICharacter& target);
-};
+AMateria*	Cure::clone() const {
+	return new Cure();
+}
 
-#endif
+void	Cure::use(ICharacter& target) {
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}

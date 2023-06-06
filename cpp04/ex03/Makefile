@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/06/05 16:53:37 by pharbst          ###   ########.fr        #
+#    Updated: 2023/06/06 18:01:46 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ PRONAME = IceNcure
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Iinc
 
 SRCS = AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp Character.cpp IMateriaSource.cpp MateriaSource.cpp main.cpp
 
@@ -23,6 +23,8 @@ OBJ_DIR = ./obj/
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 
 include color.mk
+
+VPATH := src
 
 all:
 	@$(MAKE) -s proname_header

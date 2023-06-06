@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 16:12:29 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/20 19:25:34 by pharbst          ###   ########.fr       */
+/*   Created: 2023/06/06 16:09:23 by pharbst           #+#    #+#             */
+/*   Updated: 2023/06/06 18:14:45 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
-#include "ICharacter.hpp"
+#include "Ice.hpp"
 
-Cure::Cure() : AMateria("cure"){
+Ice::Ice() : AMateria("ice") {
 }
 
-Cure::Cure(const Cure& ref) : AMateria(ref){
+Ice::~Ice() {
 }
 
-Cure::~Cure(){
+AMateria*	Ice::clone() const {
+	return new Ice();
 }
 
-AMateria* Cure::clone() const{
-	return (new Cure(*this));
-}
-
-void Cure::use(ICharacter& target){
-	std::cout << "cure:	* heals " << target.getName() << "'s wounds *" << std::endl;
+void	Ice::use(ICharacter& target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

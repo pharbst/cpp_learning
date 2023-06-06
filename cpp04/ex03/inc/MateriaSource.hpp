@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 20:01:44 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/20 17:58:23 by pharbst          ###   ########.fr       */
+/*   Created: 2023/06/06 17:32:35 by pharbst           #+#    #+#             */
+/*   Updated: 2023/06/06 17:48:53 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include <string>
-# include <iostream>
+#include <iostream>
+#include "IMateriaSource.hpp"
 
-class ICharacter;
-// class Character;
-
-class	AMateria{
+class MateriaSource : public IMateriaSource{
+	private:
+		AMateria*	_inventory[4];
 	public:
-		AMateria(const std::string& type);
-		virtual ~AMateria();
-
-		const std::string& getType() const;
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
-
-	protected:
-		std::string _type;
+		MateriaSource();
+		~MateriaSource();
+		void learnMateria(AMateria* m);
+		AMateria* createMateria(std::string const & type);
 };
 
 #endif

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 16:03:07 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/05 14:58:04 by pharbst          ###   ########.fr       */
+/*   Created: 2023/06/06 17:32:39 by pharbst           #+#    #+#             */
+/*   Updated: 2023/06/06 17:45:52 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef IMATERIASOURCE_HPP
+# define  IMATERIASOURCE_HPP
 
-# include "AMateria.hpp"
+#include <iostream>
+#include "AMateria.hpp"
 
 class AMateria;
 
-class ICharacter
+class IMateriaSource
 {
 	public:
-		virtual ~ICharacter();
-		virtual const std::string& getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int index) = 0;
-		virtual void use(int index, ICharacter& target) = 0;
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria* m) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
 #endif

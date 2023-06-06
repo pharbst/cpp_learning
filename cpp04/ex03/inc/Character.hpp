@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 20:15:54 by pharbst           #+#    #+#             */
-/*   Updated: 2023/05/20 16:24:02 by pharbst          ###   ########.fr       */
+/*   Created: 2023/06/06 16:49:24 by pharbst           #+#    #+#             */
+/*   Updated: 2023/06/06 17:31:47 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
-AMateria::AMateria(const std::string& type) : _type(type){
-}
+#include <iostream>
+#include "ICharacter.hpp"
 
-AMateria::~AMateria(){
-}
+class Character : public ICharacter {
+	private:
+		AMateria*	_inventory[4];
+		std::string	_name;
+	public:
+		Character(std::string name);
+		~Character();
 
-void	use(ICharacter& target){
-	(void)target;
-}
+		const std::string&	getName() const;
+		void				equip(AMateria* m);
+		void				unequip(int idx);
+		void				use(int idx, ICharacter& target);
+};
 
-void	AMateria::use(ICharacter& target){
-	(void)target;
-}
+#endif

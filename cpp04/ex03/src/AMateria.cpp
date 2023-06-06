@@ -1,16 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 14:48:31 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/05 15:27:08 by pharbst          ###   ########.fr       */
+/*   Created: 2023/06/06 15:56:58 by pharbst           #+#    #+#             */
+/*   Updated: 2023/06/06 18:02:32 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "IMateriaSource.hpp"
+#include "AMateria.hpp"
 
-IMateriaSource::~IMateriaSource(){
+AMateria::AMateria(const std::string& type) : _type(type) {
+}
+
+AMateria::~AMateria() {
+}
+
+void	AMateria::use(ICharacter& target) {
+	(void)target;
+}
+
+std::string&	AMateria::getType() {
+	return _type;
 }

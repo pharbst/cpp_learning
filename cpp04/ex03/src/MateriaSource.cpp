@@ -5,42 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 15:29:38 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/05 16:48:12 by pharbst          ###   ########.fr       */
+/*   Created: 2023/06/06 17:32:42 by pharbst           #+#    #+#             */
+/*   Updated: 2023/06/06 17:58:36 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(){
+MateriaSource::MateriaSource() {
 	for (int i = 0; i < 4; i++)
-		_materia[i] = NULL;
+		_inventory[i] = NULL;
 }
 
-MateriaSource::MateriaSource(const MateriaSource& src){
+MateriaSource::~MateriaSource() {
 	for (int i = 0; i < 4; i++)
-		_materia[i] = src._materia[i];
+		if (_inventory[i])
+			delete _inventory[i];
 }
 
-MateriaSource::~MateriaSource(){
-	for (int i = 0; i < 4; i++)
-		if (_materia[i])
-			delete _materia[i];
-}
-
-void	MateriaSource::learnMateria(AMateria* m) {
-	for (int i = 0; i < 4; i++)
-		if (!_materia[i]) {
-			_materia[i] = m;
-			return ;
+void MateriaSource::learnMateria(AMateria* m) {
+	int	i = -1;
+	while (++i < 4)
+		if (!_inventory[i]) {
+			_inventory[i] = m;
+			break;
 		}
-	std::cout << "MateriaSource is full Materia gets deleted" << std::endl;
-	delete m;
+	if (i == 4) {
+		std::cout << "MateriaSource is full Materia gets destroyed" << std::endl;
+		delete m;
+	}
 }
 
-AMateria* MateriaSource::createMateria(const std::string& type) {
-	for (int i = 0; i < 4; i++)
-		if (_materia[i] && _materia[i]->getType() == type)
-			return (_materia[i]->clone());
-	return (NULL);
+AMateria* MateriaSource::createMateria(std::string const & type) {
+	int i = 0;
+	while (i < 4) {
+		if (_inventory[i]->getType == type)
+			return _inventory[i]->clone;
+		i++;
+	}
 }
