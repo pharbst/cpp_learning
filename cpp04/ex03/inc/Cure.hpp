@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:09:19 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/06 17:56:52 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/07 17:43:03 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 #include "AMateria.hpp"
 
 class Cure : public AMateria {
-	Cure();
-	~Cure();
+	public:
+		Cure();
+		~Cure();
 
-	AMateria*	clone();
-	void		use(ICharacter& target);
+		virtual AMateria*	clone() const;
+		void		use(ICharacter& target);
 };
 
 #endif

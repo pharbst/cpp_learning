@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:32:42 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/06 17:58:36 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/07 18:02:31 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ void MateriaSource::learnMateria(AMateria* m) {
 	}
 }
 
-AMateria* MateriaSource::createMateria(std::string const & type) {
+AMateria* MateriaSource::createMateria(const std::string& type) {
 	int i = 0;
 	while (i < 4) {
-		if (_inventory[i]->getType == type)
-			return _inventory[i]->clone;
+		if (_inventory[i]->getType() == type)
+			return _inventory[i]->clone();
 		i++;
 	}
+	return NULL;
 }

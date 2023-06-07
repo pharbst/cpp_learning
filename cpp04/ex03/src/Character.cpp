@@ -6,16 +6,21 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:49:17 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/06 17:31:43 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/07 18:06:01 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 Character::Character(std::string name) : _name(name) {
+	for (int i = 0; i < 4; i++)
+		_inventory[i] = NULL;
 }
 
 Character::~Character() {
+	for (int i = 0; i < 4; i++)
+		if (_inventory[i])
+			delete _inventory[i];
 }
 
 const std::string&	Character::getName() const {
@@ -24,8 +29,10 @@ const std::string&	Character::getName() const {
 
 void	Character::equip(AMateria* m) {
 	for (int i = 0; i < 4; i++)
-		if (!_inventory[i])
+		if (!_inventory[i]) {
 			_inventory[i] = m;
+			break;
+		}
 }
 
 void	Character::unequip(int idx) {

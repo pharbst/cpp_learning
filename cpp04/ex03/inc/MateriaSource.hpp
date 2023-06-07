@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:32:35 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/06 17:48:53 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/07 17:40:14 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class MateriaSource : public IMateriaSource{
 		MateriaSource();
 		~MateriaSource();
 		void learnMateria(AMateria* m);
-		AMateria* createMateria(std::string const & type);
+		AMateria* createMateria(const std::string& type);
 };
 
 #endif
