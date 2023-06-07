@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:32:42 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/07 18:02:31 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/08 01:20:22 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ AMateria* MateriaSource::createMateria(const std::string& type) {
 			return _inventory[i]->clone();
 		i++;
 	}
+	std::cout << "MateriaSource Materia not found" << std::endl;
 	return NULL;
 }

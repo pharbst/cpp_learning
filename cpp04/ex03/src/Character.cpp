@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:49:17 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/07 18:06:01 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/08 01:17:41 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void	Character::equip(AMateria* m) {
 	for (int i = 0; i < 4; i++)
 		if (!_inventory[i]) {
 			_inventory[i] = m;
-			break;
+			return;
 		}
+	std::cout << "Inventory is full Materia gets destroyed" << std::endl;
+	delete m;
 }
 
 void	Character::unequip(int idx) {
