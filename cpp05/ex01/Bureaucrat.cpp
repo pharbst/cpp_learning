@@ -6,25 +6,25 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:36:46 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/15 23:30:47 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/15 23:43:12 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("noname"), _level(150) {
+Bureaucrat::Bureaucrat() : _name("noname"), _grade(150) {
 }
 
-Bureaucrat::Bureaucrat(std::string name, int level) : _name(name) {
-	if (level < 1)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
+	if (grade < 1)
 		throw Bureaucrat::GradeTooHigh();
-	else if (level > 150)
+	else if (grade > 150)
 		throw Bureaucrat::GradeTooLow();
 	else
-		_level = level;
+		_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat& ref) : _name(ref.getName()), _level(ref.getLevel()) {
+Bureaucrat::Bureaucrat(Bureaucrat& ref) : _name(ref.getName()), _grade(ref.getGrade()) {
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& ref) {
@@ -42,30 +42,39 @@ const std::string&	Bureaucrat::getName() const {
 }
 
 int	Bureaucrat::getGrade() const {
-	return _level;
+	return _grade;
 }
 
-void	Bureaucrat::incrementLevel() {
-	if (_level < 2)
+void	Bureaucrat::incrementGrade() {
+	if (_grade < 2)
 		throw Bureaucrat::GradeTooHigh();
 	else
-		_level--;
+		_grade--;
 }
 
-void	Bureaucrat::decrementLevel() {
-	if (_level > 149)
+void	Bureaucrat::decrementGrade() {
+	if (_grade > 149)
 		throw Bureaucrat::GradeTooLow();
 	else
-		_level++;
+		_grade++;
 }
 
-void	Bureaucrat::changeLevel(int i) {
-	if (_level - i < 1)
+void	Bureaucrat::changeGrade(int i) {
+	if (_grade - i < 1)
 		throw Bureaucrat::GradeTooHigh();
-	else if (_level - i > 150)
+	else if (_grade - i > 150)
 		throw Bureaucrat::GradeTooLow();
 	else
-		_level -= i;
+		_grade -= i;
+}
+
+void	signForm(Form& toSign) {
+	try {
+		
+	}
+	catch(std::exception& e) {
+		std::cout << 
+	}
 }
 
 const char	*Bureaucrat::GradeTooHigh::what() const throw() {
@@ -78,6 +87,6 @@ const char	*Bureaucrat::GradeTooLow::what() const throw() {
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& src) {
 	os << "Name:	" << src.getName() << " ";
-	os << "Level:	" << src.getLevel();
+	os << "Level:	" << src.getGrade();
 	return os;
 }

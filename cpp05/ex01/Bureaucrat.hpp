@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:32:46 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/15 23:30:38 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/15 23:38:23 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,25 @@
 
 # include <iostream>
 # include <fstream>
+# include "Form.hpp"
 
 class Bureaucrat {
 	private:
-		const std::string _name;
-		int			_level;
+		const std::string	_name;
+		int					_grade;
 	public:
 		Bureaucrat();
-		Bureaucrat(std::string name, int level);
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat(Bureaucrat& ref);
 		Bureaucrat& operator=(const Bureaucrat& ref);
 		~Bureaucrat();
 
 		const std::string&	getName() const;
 		int					getGrade() const;
-		void				incrementLevel();
-		void				decrementLevel();
-		void				changeLevel(int i);
+		void				incrementGrade();
+		void				decrementGrade();
+		void				changeGrade(int i);
+		void				signForm(Form& toSign);
 
 		class GradeTooHigh : public std::exception {
 			public:
