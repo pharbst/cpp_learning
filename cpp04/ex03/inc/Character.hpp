@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:49:24 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/06 17:31:47 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/15 16:11:01 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class Character : public ICharacter {
 		std::string	_name;
 	public:
 		Character(std::string name);
+		Character(const Character& ref);
+		Character&	operator=(const Character& ref);
 		~Character();
 
 		const std::string&	getName() const;
