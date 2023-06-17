@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:49:22 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/15 17:18:00 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/17 17:36:17 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class AMateria {
 		std::string	_type;
 	public:
 		AMateria(const std::string& type);
+		AMateria(const AMateria& ref);
+		AMateria& operator=(const AMateria& ref);
 		virtual ~AMateria();
 		
 		virtual AMateria* clone() const = 0;
