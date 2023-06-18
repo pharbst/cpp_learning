@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 22:39:32 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/15 23:30:06 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/18 17:10:14 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 #include "Bureaucrat.hpp"
 
-// class Bureaucrat;
+class Bureaucrat;
 
 class Form {
 	private:
@@ -32,12 +32,16 @@ class Form {
 		~Form();
 
 		void	beSigned(const Bureaucrat& randy);
+		std::string	getName() const;
+		int			getSignGrade() const;
+		int			getExecGrade() const;
+
 		
-		class GradeTooLow : public std::exception {
+		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
-		class GradeTooHigh : public std::exception {
+		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};

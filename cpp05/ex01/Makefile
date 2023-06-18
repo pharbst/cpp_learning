@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/06/15 21:17:50 by pharbst          ###   ########.fr        #
+#    Updated: 2023/06/18 16:37:45 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Iinc
 
-SRCS = 
+SRCS = Bureaucrat.cpp Form.cpp main.cpp
 
 OBJ_DIR = ./obj/
 

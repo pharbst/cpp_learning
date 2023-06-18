@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:32:46 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/15 23:38:23 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/18 16:54:05 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <fstream>
 # include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -35,11 +37,11 @@ class Bureaucrat {
 		void				changeGrade(int i);
 		void				signForm(Form& toSign);
 
-		class GradeTooHigh : public std::exception {
+		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
-		class GradeTooLow : public std::exception {
+		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
