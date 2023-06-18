@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:32:46 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/15 23:30:38 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/06/18 12:42:20 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ class Bureaucrat {
 		void				decrementLevel();
 		void				changeLevel(int i);
 
-		class GradeTooHigh : public std::exception {
+		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
-		class GradeTooLow : public std::exception {
+		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
