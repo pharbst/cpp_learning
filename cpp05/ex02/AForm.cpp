@@ -71,6 +71,7 @@ int	AForm::getExecGrade() const {
 bool	AForm::check(const Bureaucrat& executer) const {
 	if (executer.getGrade() > _execGrade || _signed == false)
 		return false;
+	return true;
 }
 
 std::ostream&	operator<<(std::ostream& os, const AForm& src) {
