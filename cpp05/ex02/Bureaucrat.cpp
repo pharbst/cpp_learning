@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:36:46 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/18 17:01:31 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/05 12:49:52 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	Bureaucrat::changeGrade(int i) {
 		_grade -= i;
 }
 
-void	Bureaucrat::signForm(Form& toSign) {
+void	Bureaucrat::signForm(AForm& toSign) {
 	try {
 		toSign.beSigned(*this);
 		std::cout << getName() << " signed the Form: " << toSign.getName() << std::endl;

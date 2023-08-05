@@ -6,15 +6,18 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:36:23 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/05 12:38:28 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/05 13:05:41 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
 
-#include <ctime>
-#include <AForm.hpp>
+# include <ctime>
+# include "AForm.hpp"
+# include <fstream>
+# include "Bureaucrat.hpp"
+
 
 class PresidentialPardonForm : public AForm{
 	public:

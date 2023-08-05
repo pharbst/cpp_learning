@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 01:03:20 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/03 01:05:08 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/05 12:52:31 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "Bureaucrat.hpp"
 # include "AForm.hpp"
+# include <fstream>
+
 
 class RobotonomyRequestForm : public AForm{
 	public:

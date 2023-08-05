@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 01:03:15 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/05 12:35:13 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/05 13:05:19 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,4 @@ void RobotonomyRequestForm::execute(const Bureaucrat& executer) const {
 	catch (std::exception& e) {
 		std::cout << "execution failed cause of: " << e.what() << std::endl;
 	}
+}

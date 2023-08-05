@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 18:36:49 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/18 19:03:06 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/05 13:00:13 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "Bureaucrat.hpp"
 # include "AForm.hpp"
+# include <fstream>
+#include <string>
 
 class ShrubberyCreationForm : public AForm{
 	public:

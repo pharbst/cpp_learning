@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 18:36:49 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/03 01:01:33 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/05 13:04:54 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executer) const {
 	try {
 		if (!AForm::check(executer))
 			throw AForm::GradeTooLowException();
-		std::ofstream	fileOut(AForm::getName() + "_shrubbery");
+		std::string	FileName = getName() + "_shrubbery";
+		std::ofstream	fileOut(FileName.c_str());
 		if (!fileOut.is_open())
 			throw std::exception();
 		fileOut << "       _-_" << std::endl;
