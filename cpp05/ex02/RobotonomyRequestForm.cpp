@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 01:03:15 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/03 01:06:23 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/05 12:35:13 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,19 @@ RobotonomyRequestForm& RobotonomyRequestForm::operator=(const RobotonomyRequestF
 	*this = ref;
 	return *this;
 }
+
+RobotonomyRequestForm::~RobotonomyRequestForm() {
+}
+
+void RobotonomyRequestForm::execute(const Bureaucrat& executer) const {
+	try {
+		if (!AForm::check(executer))
+			throw AForm::GradeTooLowException();
+		if (clock() % 2)
+			std::cout << getName() << " has been robotomized!" << std::endl;
+		else
+			std::cout << "Robotomization failed!" << std::endl;
+	}
+	catch (std::exception& e) {
+		std::cout << "execution failed cause of: " << e.what() << std::endl;
+	}
