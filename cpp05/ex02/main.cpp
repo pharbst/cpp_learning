@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:07:02 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/08 11:40:03 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/08 18:53:23 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main(void) {
 	Formular[1] = new RobotonomyRequestForm("Pfff");
 	Formular[2] = new PresidentialPardonForm("Your moma");
 
+	Bureaucrat Larry("Larry", 150);
 	Bureaucrat Ulli("Ulli", 90);
 	Bureaucrat Herta("Herta", 50);
 	Bureaucrat Jürgen("Jürgen", 30);
@@ -38,5 +39,11 @@ int main(void) {
 
 	Formular[0]->execute(Ulli);
 	Formular[0]->beSigned(Ulli);
+	Formular[0]->execute(Larry);
+	Formular[0]->execute(Ulli);
+
+	// Formular[1]->beSigned(Ulli);
+	// Formular[1]->beSigned(Herta);
+	
 	return 0;
 }

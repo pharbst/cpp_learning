@@ -78,6 +78,7 @@ void	AForm::execute(const Bureaucrat& executer) const {
 			throw GradeTooLowException();
 		if (!_signed)
 			throw NotSignedException();
+		this->action();
 	}
 	catch (std::exception& e) {
 		std::cout << "execution failed: " << e.what() << std::endl;
