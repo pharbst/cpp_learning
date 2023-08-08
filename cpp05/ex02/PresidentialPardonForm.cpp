@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:38:48 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/05 12:44:04 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/08 11:07:45 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,6 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 PresidentialPardonForm::~PresidentialPardonForm() {
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat& executer) const {
-	try {
-		if (!AForm::check(executer))
-			throw AForm::GradeTooLowException();
-		std::cout << getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
-	}
-	catch (std::exception& e) {
-		std::cout << "execution failed cause of: " << e.what() << std::endl;
-	}
+void PresidentialPardonForm::action() {
+	std::cout << getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 22:39:32 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/03 00:56:22 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/08 11:03:56 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,13 @@ class AForm {
 		std::string	getName() const;
 		int			getSignGrade() const;
 		int			getExecGrade() const;
-		virtual void		execute(const Bureaucrat& executer) const = 0;
+		virtual void		execute(const Bureaucrat& executer) const;
 		bool		check(const Bureaucrat& executer) const;
 
-		
+		class NotSignedException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
 		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char *what() const throw();

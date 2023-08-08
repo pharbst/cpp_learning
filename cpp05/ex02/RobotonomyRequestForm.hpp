@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 01:03:20 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/05 12:52:31 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/08 11:16:10 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class RobotonomyRequestForm : public AForm{
 		RobotonomyRequestForm& operator=(const RobotonomyRequestForm& ref);
 		~RobotonomyRequestForm();
 
-		void execute(const Bureaucrat& executer) const;
+		void action();
 };
 
 #endif
