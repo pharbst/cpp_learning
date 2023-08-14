@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:36:23 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/08 11:06:38 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/14 12:31:16 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PresidentialPardonForm : public AForm{
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& ref);
 		~PresidentialPardonForm();
 
-		void action();
+		virtual void action() const;
 };
 
 #endif

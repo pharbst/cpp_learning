@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:38:48 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/08 18:58:18 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/14 12:33:32 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 PresidentialPardonForm::~PresidentialPardonForm() {
 }
 
-void PresidentialPardonForm::action() {
+void PresidentialPardonForm::action() const {
 	std::cout << getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 18:36:49 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/08 11:17:19 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/14 12:32:48 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ShrubberyCreationForm : public AForm{
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& ref);
 		~ShrubberyCreationForm();
 
-		void action();
+		virtual void action() const;
 };
 
 #endif

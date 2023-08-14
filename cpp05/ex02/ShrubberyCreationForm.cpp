@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 18:36:49 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/08 11:17:01 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/14 12:33:49 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
-void ShrubberyCreationForm::action() {
+void ShrubberyCreationForm::action() const {
 	std::string	FileName = getName() + "_shrubbery";
 	std::ofstream	fileOut(FileName.c_str());
 	if (!fileOut.is_open())

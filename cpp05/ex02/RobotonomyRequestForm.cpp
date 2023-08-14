@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 01:03:15 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/08 11:15:39 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/14 12:33:41 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ RobotonomyRequestForm& RobotonomyRequestForm::operator=(const RobotonomyRequestF
 RobotonomyRequestForm::~RobotonomyRequestForm() {
 }
 
-void RobotonomyRequestForm::action() {
+void RobotonomyRequestForm::action() const {
 	if (clock() % 2)
 		std::cout << getName() << " has been robotomized!" << std::endl;
 	else
