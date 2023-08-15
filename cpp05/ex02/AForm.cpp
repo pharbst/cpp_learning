@@ -42,10 +42,15 @@ AForm::~AForm() {
 }
 
 void	AForm::beSigned(const Bureaucrat& randy) {
-	if (randy.getGrade() > _signGrade)
-		throw AForm::GradeTooLowException();
-	else
-		_signed = true;
+	try {
+		if (randy.getGrade() > _signGrade)
+			throw AForm::GradeTooLowException();
+		else
+			_signed = true;
+	}
+	catch(std::exception& e) {
+		std::cout << "signing failed: " << e.what() << std::endl;
+	}
 }
 
 const char	*AForm::GradeTooHighException::what() const throw() {

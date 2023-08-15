@@ -6,11 +6,11 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/08/05 12:48:35 by pharbst          ###   ########.fr        #
+#    Updated: 2023/08/14 12:36:38 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PRONAME = Bureaucrat
+PRONAME = Formular_28C
 
 CC = c++
 
