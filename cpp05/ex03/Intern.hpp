@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 14:50:43 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/15 15:26:04 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/16 07:34:06 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include "RobotonomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
 
-using Form = AForm;
-
 class Intern {
 	public:
 		Intern();
@@ -27,7 +25,7 @@ class Intern {
 		Intern& operator=(const Intern& ref);
 		~Intern();
 
-		Form*	makeForm(std::string name, std::string target);
-}
+		AForm*	makeForm(std::string name, std::string target);
+};
 
 #endif
