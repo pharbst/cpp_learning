@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotonomyRequestForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTONOMYREQUESTFORM_HPP
-# define ROBOTONOMYREQUESTFORM_HPP
+#ifndef RobotomyREQUESTFORM_HPP
+# define RobotomyREQUESTFORM_HPP
 
 # include "Bureaucrat.hpp"
 # include "AForm.hpp"
 # include <fstream>
 
 
-class RobotonomyRequestForm : public AForm{
+class RobotomyRequestForm : public AForm{
 	public:
-		RobotonomyRequestForm();
-		RobotonomyRequestForm(std::string target);
-		RobotonomyRequestForm(const RobotonomyRequestForm& ref);
-		RobotonomyRequestForm& operator=(const RobotonomyRequestForm& ref);
-		~RobotonomyRequestForm();
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(const RobotomyRequestForm& ref);
+		RobotomyRequestForm& operator=(const RobotomyRequestForm& ref);
+		~RobotomyRequestForm();
 
 		virtual void action() const;
 };

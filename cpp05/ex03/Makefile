@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/08/15 15:26:53 by pharbst          ###   ########.fr        #
+#    Updated: 2023/08/16 08:08:28 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Iinc
 
-SRCS = Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotonomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp main.cpp
+SRCS = Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp main.cpp
 
 OBJ_DIR = ./obj/
 

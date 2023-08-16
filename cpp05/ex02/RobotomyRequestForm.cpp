@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotonomyRequestForm.cpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,28 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotonomyRequestForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-RobotonomyRequestForm::RobotonomyRequestForm() : AForm("no_target", 72, 45) {
+RobotomyRequestForm::RobotomyRequestForm() : AForm("no_target", 72, 45) {
 }
 
-RobotonomyRequestForm::RobotonomyRequestForm(std::string target) : AForm(target, 72, 45) {
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45) {
 }
 
-RobotonomyRequestForm::RobotonomyRequestForm(const RobotonomyRequestForm& ref) : AForm(ref.getName(), 72, 45) {
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& ref) : AForm(ref.getName(), 72, 45) {
 }
 
-RobotonomyRequestForm& RobotonomyRequestForm::operator=(const RobotonomyRequestForm& ref) {
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& ref) {
 	if (this == &ref)
 		return *this;
 	*this = ref;
 	return *this;
 }
 
-RobotonomyRequestForm::~RobotonomyRequestForm() {
+RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
-void RobotonomyRequestForm::action() const {
+void RobotomyRequestForm::action() const {
 	if (clock() % 2)
 		std::cout << getName() << " has been robotomized!" << std::endl;
 	else
