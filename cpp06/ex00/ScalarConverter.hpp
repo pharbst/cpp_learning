@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:46:05 by pharbst           #+#    #+#             */
-/*   Updated: 2023/09/15 18:16:42 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/09/15 20:37:37 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <limits>
 
 class ScalarConverter {
 	private:
@@ -25,9 +26,6 @@ class ScalarConverter {
 		static int			_int;
 		static float		_float;
 		static double		_double;
-		static bool			_inf;
-		static bool			_nan;
-		static bool			_neg_inf;
 
 		static void			convert(std::string input);
 };
