@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:46:05 by pharbst           #+#    #+#             */
-/*   Updated: 2023/09/19 17:00:19 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/09/19 17:12:26 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <iostream>
 # include <string>
 # include <limits>
+# include <iomanip>
+# include <sstream>
 
 class ScalarConverter {
 	private:
