@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:35:07 by pharbst           #+#    #+#             */
-/*   Updated: 2023/09/19 17:33:11 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/09/20 14:46:10 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ void	ScalarConverter::convert(std::string input) {
 	}
 	else {
 		for (int i = 0; input[i]; i++) {
-			if (!isdigit(input[i])) {
+			if (!isdigit(input[i]) && input[i] != '-') {
 				std::cout << "invalid input" << std::endl;
 				return ;
 			}
 		}
-		_int(atoi(input.c_str()));
+		_int(atol(input.c_str()));
 	}
 }
 
@@ -65,14 +65,14 @@ void	ScalarConverter::_char(char c) {
 	if (_float == static_cast<int>(c))
 		std::cout << "float: " << _float << ".0" << "f" << std::endl;
 	else
-		std::cout << "float: " << std::setprecision(4) << _float << "f" << std::endl;
+		std::cout << "float: " << _float << "f" << std::endl;
 	if (_double == static_cast<int>(c))
 		std::cout << "double: " << _double << ".0" << std::endl;
 	else
-		std::cout << "double: " << std::setprecision(4) << _double << std::endl;
+		std::cout << "double: " << _double << std::endl;
 }
 
-void	ScalarConverter::_int(int i) {
+void	ScalarConverter::_int(long i) {
 	char	_char;
 	float	_float;
 	double	_double;
@@ -83,17 +83,22 @@ void	ScalarConverter::_int(int i) {
 	
 	if (_char < 126 && _char > 32)
 		std::cout << "char: " << _char << std::endl;
+	else if (i < 0 || i > 255)
+		std::cout << "char: impossible" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
-	std::cout << "int: " << i << std::endl;
+	if (i < INT_MIN || i > INT_MAX)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << i << std::endl;
 	if (_float == static_cast<int>(i))
 		std::cout << "float: " << _float << ".0" << "f" << std::endl;
 	else
-		std::cout << "float: " << std::setprecision(4) << _float << "f" << std::endl;
+		std::cout << "float: " << _float << "f" << std::endl;
 	if (_double == static_cast<int>(i))
 		std::cout << "double: " << _double << ".0" << "f" << std::endl;
 	else
-		std::cout << "double: " << std::setprecision(4) << _double << std::endl;
+		std::cout << "double: " << _double << std::endl;
 }
 
 void	ScalarConverter::_float(float f) {
@@ -109,20 +114,24 @@ void	ScalarConverter::_float(float f) {
 		std::cout << "char: impossible" << std::endl;
 	else if (_char < 126 && _char > 32)
 		std::cout << "char: " << _char << std::endl;
+	else if (_int < 0 || _int > 255)
+		std::cout << "char: impossible" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	if (isnan(f) || isinf(f))
+		std::cout << "int: impossible" << std::endl;
+	else if (f < INT_MIN || f > INT_MAX)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << _int << std::endl;
 	if (f == static_cast<int>(f))
 		std::cout << "float: " << f << ".0" << "f" << std::endl;
 	else
-		std::cout << "float: " << std::setprecision(4) << f << "f" << std::endl;
+		std::cout << "float: " << f << "f" << std::endl;
 	if (_double == static_cast<int>(f))
 		std::cout << "double: " << _double << ".0" << std::endl;
 	else
-		std::cout << "double: " << std::setprecision(4) << _double << std::endl;
+		std::cout << "double: " << _double << std::endl;
 }
 
 void	ScalarConverter::_double(double d) {
@@ -130,7 +139,7 @@ void	ScalarConverter::_double(double d) {
 	int		_int = static_cast<int>(d);
 	float	_float = static_cast<float>(d);
 
-	if (isnan(d) || isinf(d))
+	if (isnan(d) || isinf(d) || _int < 0 || _int > 255)
 		std::cout << "char: impossible" << std::endl;
 	else if (_char < 126 && _char > 32)
 		std::cout << "char: " << _char << std::endl;
@@ -138,14 +147,16 @@ void	ScalarConverter::_double(double d) {
 		std::cout << "char: Non displayable" << std::endl;
 	if (isnan(d) || isinf(d))
 		std::cout << "int: impossible" << std::endl;
+	else if (d < INT_MIN || d > INT_MAX)
+		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << _int << std::endl;
 	if (_float == static_cast<int>(d))
 		std::cout << "float: " << _float << ".0" << "f" << std::endl;
 	else
-		std::cout << "float: " << std::setprecision(4) << _float << "f" << std::endl;
+		std::cout << "float: " << _float << "f" << std::endl;
 	if (d == static_cast<int>(d))
 		std::cout << "double: " << d << ".0" << std::endl;
 	else
-		std::cout << "double: " << std::setprecision(4) << d << std::endl;
+		std::cout << "double: " << d << std::endl;
 }
