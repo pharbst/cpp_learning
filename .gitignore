@@ -57,6 +57,7 @@ Serialize
 Identify
 Whatever
 Iter
+Array
 
 # Other Files
 *.replace
