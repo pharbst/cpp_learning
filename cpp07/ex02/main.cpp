@@ -1,5 +1,6 @@
 #include <iostream>
-#include <Array.hpp>
+
+#include "Array.hpp"
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -33,16 +34,18 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "exception caught: " << e.what();
     }
+    std::cout << "^^^here should be an exception caught\n" << std::endl;
     try
     {
         numbers[MAX_VAL] = 0;
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "exception caught: " << e.what();
     }
+    std::cout << "^^^here should be an exception caught\n" << std::endl;
 
     for (int i = 0; i < MAX_VAL; i++)
     {
