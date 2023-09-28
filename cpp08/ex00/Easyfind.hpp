@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 17:48:07 by pharbst           #+#    #+#             */
-/*   Updated: 2023/09/23 18:53:19 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/09/24 14:05:51 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@
 
 class TargetNotFoundException : public std::exception {
 public:
-    virtual const char* what() const throw() {
-        return "Target not found";
-    }
+	virtual const char* what() const throw();
 };
 
 template <typename T, typename S>
