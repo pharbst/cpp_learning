@@ -6,11 +6,11 @@
 #    By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/09/24 17:00:53 by pharbst          ###   ########.fr        #
+#    Updated: 2023/09/28 02:46:51 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PRONAME = Easyfind
+PRONAME = Span
 
 CC = c++
 

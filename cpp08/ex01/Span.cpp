@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 19:17:48 by pharbst           #+#    #+#             */
-/*   Updated: 2023/09/24 17:10:31 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/09/28 02:41:59 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@ Span&	Span::operator=(const Span& ref) {
 	return *this;
 }
 
-Span::~Span() {}
-
-int		Span::operator[](unsigned int index) {
+int		Span::operator[](unsigned int index) const {
+	if (index >= _size)
+		throw OutOfBoundsException();
 	return _span[index];
 }
 
+Span::~Span() {}
+
 unsigned int	Span::size() const {
-	return _size;
+	return _span.size();
 }
 
 void	Span::addNumber(int add) {
@@ -66,6 +68,10 @@ int		Span::longestSpan() {
 
 const char*	Span::FullSpanException::what() const throw() {
 	return "Span is already full";
+}
+
+const char*	Span::OutOfBoundsException::what() const throw() {
+	return "Index out of bounds";
 }
 
 const char*	Span::NotEnoughNumbersException::what() const throw() {
