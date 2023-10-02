@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/09/28 04:12:05 by pharbst          ###   ########.fr        #
+#    Updated: 2023/10/02 06:23:32 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Iinc
 
-SRCS = main.cpp
+SRCS = main.cpp \
+		BitcoinExchange.cpp
 
 OBJ_DIR = ./obj/
 
