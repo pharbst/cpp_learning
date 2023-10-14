@@ -6,17 +6,18 @@
 #    By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/09/23 18:49:03 by pharbst          ###   ########.fr        #
+#    Updated: 2023/10/15 01:20:37 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PRONAME = Easyfind
+PRONAME = RPN
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Iinc
 
-SRCS = main.cpp
+SRCS = main.cpp \
+		RPN.cpp
 
 OBJ_DIR = ./obj/
 
