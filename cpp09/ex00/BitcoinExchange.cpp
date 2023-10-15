@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 04:15:01 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/02 07:44:24 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/09 11:16:00 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-std::map<int, double>	BitcoinExchange::_database;
+
+std::map<std::string, double>	BitcoinExchange::_database;
 
 BitcoinExchange::BitcoinExchange(void) {}
 
@@ -36,13 +37,12 @@ const char*	BitcoinExchange::InvalidDatabaseException::what() const throw() {
 	return "Invalid Format in database or empty database.";
 }
 
-int		BitcoinExchange::extractDate(const std::string& line) {
+std::string	BitcoinExchange::extractDate(const std::string& line) {
 	size_t	commaPosition = line.find(',');
 	if (commaPosition == std::string::npos)
 		throw InvalidDatabaseException();
-	std::string	dateString = line.substr(0, commaPosition);
-	dateString.erase(std::remove(dateString.begin(), dateString.end(), '-'), dateString.end());
-	return std::stoi(dateString);
+	std::string dateString = line.substr(0, commaPosition);
+	return dateString;
 }
 
 double	BitcoinExchange::extractExchangeRate(const std::string& line) {
@@ -50,16 +50,17 @@ double	BitcoinExchange::extractExchangeRate(const std::string& line) {
 	if (commaPosition == std::string::npos)
 		throw InvalidDatabaseException();
 	std::string	exchangeRateString = line.substr(commaPosition + 1);
-	return std::stod(exchangeRateString);
+	double	ret = strtod(exchangeRateString.c_str(), NULL);
+	return ret;
 }
 
 void	BitcoinExchange::init(std::string database) {
-	std::ifstream	file(database);
+	std::ifstream	file(database.c_str());
 	if (!file.is_open())
 		throw FileNotFoundException();
 	for (std::string line; std::getline(file, line);) {
 		try {
-			_database.insert(std::pair<int, double>(extractDate(line), extractExchangeRate(line)));
+			_database.insert(std::pair<std::string, double>(extractDate(line), extractExchangeRate(line)));
 		}
 		catch(const std::exception& e) {
 			file.close();
@@ -72,17 +73,12 @@ void	BitcoinExchange::init(std::string database) {
 		throw InvalidDatabaseException();
 }
 
-double	BitcoinExchange::getExchangeRate(int date, double amount) {
-	std::map<int, double>::iterator	it = _database.lower_bound(date);
+double	BitcoinExchange::getExchangeRate(std::string date, double amount) {
+	std::map<std::string, double>::iterator	it = _database.lower_bound(date);
 	if (it->first == date)
 		return it->second * amount;
-	else if (it == _database.begin()) {
-		// date is before first entry in database
-		if (it->first == date)
-			return it->second * amount;
-		else
-			throw InvalidDatabaseException();
-	}
+	else if (it == _database.begin())
+		throw InvalidDatabaseException();
 	else
 		--it;
 	return it->second * amount;
