@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:41:10 by pharbst           #+#    #+#             */
-/*   Updated: 2023/09/24 14:04:01 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/01 09:48:06 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <set>
 #include <map>
 #include <stdexcept>
-#include "Easyfind.hpp"
+#include "EasyFind.hpp"
 
 const char* TargetNotFoundException::what() const throw () {
 	return "Target not found";
