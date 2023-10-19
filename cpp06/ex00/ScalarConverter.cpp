@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:35:07 by pharbst           #+#    #+#             */
-/*   Updated: 2023/09/20 14:46:10 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/01 09:45:28 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 ScalarConverter::ScalarConverter() {}
 
 ScalarConverter::~ScalarConverter() {}
+
+ScalarConverter::ScalarConverter(const ScalarConverter& src) {
+	*this = src;
+}
+
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src) {
+	if (this != &src)
+		*this = src;
+	return *this;
+}
 
 void	ScalarConverter::convert(std::string input) {
 	if (input == "nan")

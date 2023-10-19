@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 11:46:05 by pharbst           #+#    #+#             */
-/*   Updated: 2023/09/20 14:44:31 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/01 09:45:10 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 class ScalarConverter {
 	private:
 		ScalarConverter();
+		ScalarConverter(const ScalarConverter& src);
+		ScalarConverter& operator=(const ScalarConverter& src);
 		~ScalarConverter();
 		static void			_char(char c);
 		static void			_int(long i);
