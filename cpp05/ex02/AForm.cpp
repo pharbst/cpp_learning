@@ -78,16 +78,11 @@ int	AForm::getExecGrade() const {
 }
 
 void	AForm::execute(const Bureaucrat& executer) const {
-	try {
-		if (executer.getGrade() > _execGrade)
-			throw GradeTooLowException();
-		if (!_signed)
-			throw NotSignedException();
-		this->action();
-	}
-	catch (std::exception& e) {
-		std::cout << "execution failed: " << e.what() << std::endl;
-	}
+	if (executer.getGrade() > _execGrade)
+		throw GradeTooLowException();
+	if (!_signed)
+		throw NotSignedException();
+	this->action();
 }
 
 std::ostream&	operator<<(std::ostream& os, const AForm& src) {
