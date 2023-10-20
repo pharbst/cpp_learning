@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:32:46 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/05 12:51:42 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/20 15:58:26 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Bureaucrat {
 		void				decrementGrade();
 		void				changeGrade(int i);
 		void				signForm(AForm& toSign);
+		void				executeForm(const AForm& form);
 
 		class GradeTooHighException : public std::exception {
 			public:

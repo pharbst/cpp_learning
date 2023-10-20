@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 13:36:46 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/05 12:49:52 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/20 15:59:01 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,16 @@ void	Bureaucrat::decrementGrade() {
 		throw Bureaucrat::GradeTooLowException();
 	else
 		_grade++;
+}
+
+void	Bureaucrat::executeForm(const AForm& form) {
+	try {
+		form.execute(*this);
+		std::cout << getName() << " executed the Form: " << form.getName() << std::endl;
+	}
+	catch(std::exception& e) {
+		std::cout << this->getName() << " couldn`t execute" << form.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 void	Bureaucrat::changeGrade(int i) {
