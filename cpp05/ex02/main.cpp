@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:07:02 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/16 08:08:28 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/20 16:11:35 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,53 +38,168 @@ int main(void) {
 	Bureaucrat Ute("Ute", 20);
 
 	std::cout << "Bureaucrats created" << std::endl;
-	Formular[0]->execute(Ulli);
+	try {
+		Formular[0]->execute(Ulli);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ulli tryed to execute Shrubbery" << std::endl;
-	Formular[0]->beSigned(Larry);
+	try {
+		Formular[0]->beSigned(Larry);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Larry tryed to sign shrubbery" << std::endl;
-	Formular[0]->beSigned(Ulli);
+	try {
+		Formular[0]->beSigned(Ulli);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ulli tryed to sign shrubbery" << std::endl;
-	Formular[0]->execute(Larry);
+	try {
+		Formular[0]->execute(Larry);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Larry tryed to execute Shrubbery" << std::endl;
-	Formular[0]->execute(Ulli);
+	try {
+		Formular[0]->execute(Ulli);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ulli tryed to execute Shrubbery" << std::endl;
 
-	Formular[1]->execute(Ulli);
+	try {
+		Formular[1]->execute(Ulli);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ulli tryed to execute Robotomy" << std::endl;
-	Formular[1]->beSigned(Larry);
+	try {
+		Formular[1]->beSigned(Larry);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Larry tryed to sign Robotomy" << std::endl;
-	Formular[1]->beSigned(Ulli);\
+	try {
+		Formular[1]->beSigned(Ulli);\
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ulli tryed to sign Robotomy" << std::endl;
-	Formular[1]->beSigned(Herta);
+	try {
+		Formular[1]->beSigned(Herta);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Herta tryed to sign Robotomy" << std::endl;
-	Formular[1]->execute(Larry);
+	try {
+		Formular[1]->execute(Larry);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Larry tryed to execute Robotomy" << std::endl;
-	Formular[1]->execute(Ulli);
+	try {
+		Formular[1]->execute(Ulli);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ulli tryed to execute Robotomy" << std::endl;
-	Formular[1]->execute(Herta);
+	try {
+		Formular[1]->execute(Herta);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Herta tryed to execute Robotomy" << std::endl;
-	Formular[1]->execute(Jürgen);
+	try {
+		Formular[1]->execute(Jürgen);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Jürgen tryed to execute Robotomy" << std::endl;
-	Formular[1]->execute(Ute);
+	try {
+		Formular[1]->execute(Ute);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ute tryed to execute Robotomy" << std::endl;
 
-	Formular[2]->execute(Ulli);
+	try {
+		Formular[2]->execute(Ulli);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ulli tryed to execute Presidential" << std::endl;
-	Formular[2]->beSigned(Larry);
+	try {
+		Formular[2]->beSigned(Larry);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Larry tryed to sign Presidential" << std::endl;
-	Formular[2]->beSigned(Ulli);
+	try {
+		Formular[2]->beSigned(Ulli);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ulli tryed to sign Presidential" << std::endl;
-	Formular[2]->beSigned(Herta);
+	try {
+		Formular[2]->beSigned(Herta);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Herta tryed to sign Presidential" << std::endl;
-	Formular[2]->execute(Larry);
+	try {
+		Formular[2]->execute(Larry);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Larry tryed to execute Presidential" << std::endl;
-	Formular[2]->execute(Ulli);
+	try {
+		Formular[2]->execute(Ulli);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ulli tryed to execute Presidential" << std::endl;
-	Formular[2]->execute(Herta);
+	try {
+		Formular[2]->execute(Herta);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Herta tryed to execute Presidential" << std::endl;
-	Formular[2]->execute(Jürgen);
+	try {
+		Formular[2]->execute(Jürgen);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Jürgen tryed to execute Presidential" << std::endl;
-	Formular[2]->execute(Ute);
+	try {
+		Formular[2]->execute(Ute);
+	}
+	catch(std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "Ute tryed to execute Presidential" << std::endl;
 	
 	return 0;

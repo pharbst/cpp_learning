@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 22:39:32 by pharbst           #+#    #+#             */
-/*   Updated: 2023/08/14 12:30:06 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/20 16:08:39 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class AForm {
 		bool				_signed;
 		const int			_signGrade;
 		const int			_execGrade;
+		AForm&	operator=(const AForm& ref);
 	public:
 		AForm();
 		AForm(std::string name, int signGrade, int execGrade);
 		AForm(const AForm& ref);
-		AForm&	operator=(const AForm& ref);
 		virtual ~AForm();
 
 		void			beSigned(const Bureaucrat& randy);

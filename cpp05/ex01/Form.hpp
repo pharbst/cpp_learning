@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 22:39:32 by pharbst           #+#    #+#             */
-/*   Updated: 2023/06/18 17:10:14 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/20 16:08:14 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class Form {
 		bool				_signed;
 		const int			_signGrade;
 		const int			_execGrade;
+		Form&	operator=(const Form& ref);
 	public:
 		Form();
 		Form(std::string name, int signGrade, int execGrade);
 		Form(const Form& ref);
-		Form&	operator=(const Form& ref);
 		~Form();
 
 		void	beSigned(const Bureaucrat& randy);
