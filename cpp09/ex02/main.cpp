@@ -6,39 +6,63 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 05:52:27 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/19 10:50:18 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/20 20:05:08 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <iostream>
 #include <sys/time.h>
+#include <vector>
+#include <list>
 
 uint64_t	getTime();
-void		parseArray(char **input, /*array*/);
+void		timer();
+void		parseArray(char **input, std::vector rawData);
 
 int	main(int argc, char **argv) {
-	uint64_t	start = getTime();
 
 	if (argc < 2) {
 		std::cout << "Error" << std::endl;
 		return 1;
 	}
-	try {
-		parseArray(argv, /*array*/);
+
+	char	**input = ParseInput(argv);
+	int		elements;
+	for (int i = 0; input[i]; i++)
+		elements++;
+
+	{
+		timer();
+		PmergeMe<std::vector<int> >	VectorMerge;
+		VectorMerge.sort(input);
+		timer(elements);
 	}
-	catch(std::excpetion& e) {
-		std::cout << e.what() << std::endl;
-		return 1;
+
+	{
+		timer();
+		PmergeMe<std::list<int> >	ListMerge;
+		ListMerge.sort();
+		timer(elements);
 	}
-	PmergeMe::vectorSort(/*array*/);
-	PmergeMe::listSort(/*array*/);
 }
 
-void	parseArray(char **input) {
+void	parseArray(char **input, std::vector rawData) {
 	char **argv = &input[1];
 	for (int i = 0; input[i]; i++) {
-		
+		if (!isNumber(input[i]))
+			throw invalidNumberException();
 	}
+	for (int i = 0; input[i]; i++)
+		
+}
+
+bool		isNumber(char *str) {
+	for (int i = 0; str[i]; i++) {
+		if (std::isdigit(str[i]))
+			return false;
+	}
+	return true;
 }
 
 uint64_t	getTime() {
@@ -48,4 +72,15 @@ uint64_t	getTime() {
 	gettimeofday(&timestamp, NULL);
 	time = static_cast<uint64_t>(timestamp.tv_sec) * 1000000 + static_cast<uint64_t>(timestamp.tv_usec);
 	return time;
+}
+
+void		timer(int elements, const std::string& container) {
+	static uint64_t	start = 0;
+	static uint64_t	end = 0;
+	if (start == 0)
+		start = getTime();
+	else {
+		end = getTime();
+		std::cout << "Tiem to process a range of " << elements << " elements with " << container << " : " << (start - end) << " us"
+	}
 }
