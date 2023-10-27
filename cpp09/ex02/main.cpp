@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
+/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 05:52:27 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/20 20:05:08 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/27 14:46:25 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+// #include "PmergeMe.hpp"
 #include <iostream>
 #include <sys/time.h>
 #include <vector>
 #include <list>
 
-uint64_t	getTime();
-void		timer();
-void		parseArray(char **input, std::vector rawData);
+int*		ParseInput(char **argv, int elements);
+bool		isNumber(char *str);
+// uint64_t	getTime();
+// void		timer();
+// void		timer(int elements, const std::string& container);
 
 int	main(int argc, char **argv) {
 
@@ -27,34 +29,44 @@ int	main(int argc, char **argv) {
 		return 1;
 	}
 
-	char	**input = ParseInput(argv);
-	int		elements;
-	for (int i = 0; input[i]; i++)
-		elements++;
+	// parse the shit
+	int		elements = argc - 1;
+	int*	input = ParseInput(argv, elements);
+	if (!input)
+		return 1;
 
-	{
-		timer();
-		PmergeMe<std::vector<int> >	VectorMerge;
-		VectorMerge.sort(input);
-		timer(elements);
+	// printing statement has to be changed for subject later
+	for (int i = 0; i < elements; i++) {
+		std::cout << input[i] << std::endl;
 	}
+	
+	// {
+	// 	timer();
+	// 	PmergeMe<std::vector<int> >	VectorMerge;
+	// 	VectorMerge.sort(input);
+	// 	timer(elements);
+	// }
 
-	{
-		timer();
-		PmergeMe<std::list<int> >	ListMerge;
-		ListMerge.sort();
-		timer(elements);
-	}
+	// {
+	// 	timer();
+	// 	PmergeMe<std::list<int> >	ListMerge;
+	// 	ListMerge.sort();
+	// 	timer(elements);
+	// }
+	return 0;
 }
 
-void	parseArray(char **input, std::vector rawData) {
-	char **argv = &input[1];
-	for (int i = 0; input[i]; i++) {
-		if (!isNumber(input[i]))
-			throw invalidNumberException();
+int*	ParseInput(char **argv, int elements) {
+	argv++;
+	for (int i = 0; argv[i]; i++) {
+		if (isNumber(argv[i]))
+			return NULL;
 	}
-	for (int i = 0; input[i]; i++)
-		
+	int*		input = new int[elements];
+	for (int i = 0; argv[i]; i++) {
+		input[i] = std::atoi(argv[i]);
+	}
+	return input;
 }
 
 bool		isNumber(char *str) {
@@ -65,22 +77,23 @@ bool		isNumber(char *str) {
 	return true;
 }
 
-uint64_t	getTime() {
-	uint64_t	time;
-	timeval		timestamp;
+// uint64_t	getTime() {
+// 	uint64_t	time;
+// 	timeval		timestamp;
 
-	gettimeofday(&timestamp, NULL);
-	time = static_cast<uint64_t>(timestamp.tv_sec) * 1000000 + static_cast<uint64_t>(timestamp.tv_usec);
-	return time;
-}
+// 	gettimeofday(&timestamp, NULL);
+// 	time = static_cast<uint64_t>(timestamp.tv_sec) * 1000000 + static_cast<uint64_t>(timestamp.tv_usec);
+// 	return time;
+// }
 
-void		timer(int elements, const std::string& container) {
-	static uint64_t	start = 0;
-	static uint64_t	end = 0;
-	if (start == 0)
-		start = getTime();
-	else {
-		end = getTime();
-		std::cout << "Tiem to process a range of " << elements << " elements with " << container << " : " << (start - end) << " us"
-	}
-}
+// void		timer(int elements, const std::string& container) {
+// 	static uint64_t	start = 0;
+// 	static uint64_t	end = 0;
+// 	if (start == 0)
+// 		start = getTime();
+// 	else {
+// 		end = getTime();
+// 		std::cout << "Tiem to process a range of " << elements << " elements with " << container << " : " << (start - end) << " us" << std::endl;
+// 		start = 0;
+// 	}
+// }
