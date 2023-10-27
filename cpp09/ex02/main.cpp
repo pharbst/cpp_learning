@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 05:52:27 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/27 15:22:37 by peter            ###   ########.fr       */
+/*   Updated: 2023/10/27 17:48:26 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "PmergeMe.hpp"
+#include "PmergeMe.hpp"
 #include <iostream>
 #include <sys/time.h>
 #include <vector>
@@ -31,7 +31,6 @@ int	main(int argc, char **argv) {
 
 	// parse the shit
 	int		elements = argc - 1;
-	timer(elements, "something");
 	int*	input = ParseInput(argv, elements);
 	if (!input)
 		return 1;
@@ -44,20 +43,19 @@ int	main(int argc, char **argv) {
 	}
 	std::cout << std::endl;
 
-	timer(elements, "something");
-	// {
-	// 	timer();
-	// 	PmergeMe<std::vector<int> >	VectorMerge;
-	// 	VectorMerge.sort(input);
-	// 	timer(elements);
-	// }
+	{
+		timer();
+		PmergeMe<std::vector<int> >	VectorMerge;
+		VectorMerge.sort(input, elements);
+		timer(elements);
+	}
 
-	// {
-	// 	timer();
-	// 	PmergeMe<std::list<int> >	ListMerge;
-	// 	ListMerge.sort();
-	// 	timer(elements);
-	// }
+	{
+		timer();
+		PmergeMe<std::list<int> >	ListMerge;
+		ListMerge.sort(input, elements);
+		timer(elements);
+	}
 	return 0;
 }
 

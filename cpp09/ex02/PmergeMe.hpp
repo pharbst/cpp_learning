@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 02:28:17 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/20 19:36:21 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/27 17:50:10 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,20 @@
 template <typename Container>
 class	PmergeMe {
 	public:
-		sort(char **inputArray);
-		PmergeMe();
-		~PmergeMe();
+		void	sort(int* input, int elements) {
+			putInContainer(input, elements);
+		}
+		PmergeMe() {};
+		~PmergeMe() {};
 	private:
-		PmergeMe(const PmergeMe& ref);
-		PmergeMe&	operator=(const PmergeMe& ref);
-		static	Container	rawData;
+		PmergeMe(const PmergeMe& ref) {};
+		PmergeMe&	operator=(const PmergeMe& ref) {};
+		void	putInContainer(int* input, int elements) {
+			for (int i = 0; i < elements; i++) {
+				rawData.push_back(input[i]);
+			}
+		}
+		Container	rawData;
 };
 
 #endif
