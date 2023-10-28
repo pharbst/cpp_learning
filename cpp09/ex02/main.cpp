@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 05:52:27 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/28 08:55:00 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/29 01:28:04 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ int	main(int argc, char **argv) {
 
 	{
 		timer(elements, "std[vector]");
-		PmergeMe<std::vector<int> >	VectorMerge;
+		PmergeMe<std::vector<int>, std::vector<std::pair<int, int> > >	VectorMerge;
 		VectorMerge.sort(input, elements);
 		timer(elements, "std[vector]");
 	}
 
 	{
 		timer(elements, "std[list]");
-		PmergeMe<std::list<int> >	ListMerge;
+		PmergeMe<std::list<int>, std::list<std::pair<int, int> > >	ListMerge;
 		ListMerge.sort(input, elements);
 		timer(elements, "std[list]");
 	}
