@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 05:52:27 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/29 01:28:04 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/10/30 16:10:58 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 #include <sys/time.h>
 #include <vector>
 #include <list>
-#include <cstdint>
 
 int*		ParseInput(char **argv, int elements);
 bool		isNumber(char *str);
-uint64_t	getTime();
+unsigned long	getTime();
 void		timer(int elements, const std::string& container);
 
 int	main(int argc, char **argv) {
@@ -45,17 +44,17 @@ int	main(int argc, char **argv) {
 
 	{
 		timer(elements, "std[vector]");
-		PmergeMe<std::vector<int>, std::vector<std::pair<int, int> > >	VectorMerge;
+		PmergeMe<std::vector<std::pair<std::pair<char, int >, int> >, std::vector<std::pair<int, int> > >	VectorMerge;
 		VectorMerge.sort(input, elements);
 		timer(elements, "std[vector]");
 	}
 
-	{
-		timer(elements, "std[list]");
-		PmergeMe<std::list<int>, std::list<std::pair<int, int> > >	ListMerge;
-		ListMerge.sort(input, elements);
-		timer(elements, "std[list]");
-	}
+	// {
+	// 	timer(elements, "std[list]");
+	// 	PmergeMe<std::list<int>, std::list<std::pair<int, int> > >	ListMerge;
+	// 	ListMerge.sort(input, elements);
+	// 	timer(elements, "std[list]");
+	// }
 	return 0;
 }
 
@@ -80,21 +79,21 @@ bool		isNumber(char *str) {
 	return true;
 }
 
-uint64_t	getTime() {
-	uint64_t	time;
+unsigned long	getTime() {
+	unsigned long	time;
 	timeval		timestamp;
 
 	gettimeofday(&timestamp, NULL);
-	time = static_cast<uint64_t>(timestamp.tv_sec) * 1000000 + static_cast<uint64_t>(timestamp.tv_usec);
+	time = static_cast<unsigned long>(timestamp.tv_sec) * 1000000 + static_cast<unsigned long>(timestamp.tv_usec);
 	return time;
 }
 
 void		timer(int elements, const std::string& container) {
-	static uint64_t	start = 0;
+	static unsigned long	start = 0;
 	if (start == 0)
 		start = getTime();
 	else {
-		static uint64_t	end = getTime();
+		static unsigned long	end = getTime();
 		std::cout << "Time to process a range of " << elements << " elements with " << container << " : " << (end - start) << " us" << std::endl;
 		start = 0;
 	}
