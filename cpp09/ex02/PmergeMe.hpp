@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 02:28:17 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/30 16:38:30 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/01 01:45:31 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,11 @@
 template <typename chainContainer, typename pairContainer>
 class PmergeMe {
 public:
-	void sort(int* input, int elements) {
+	chainContainer sort(int* input, int elements) {
 		pairContainer pairs = mergeSort(getPairs(input, elements));
 		createChains(pairs);
 		insertionSort();
-		for (typename chainContainer::const_iterator it = mainChain.begin(); it != mainChain.end(); ++it) {
-			std::cout << it->second << ", ";
-		}
-		std::cout << std::endl;
+		return mainChain;
 	}
 	PmergeMe() {}
 	~PmergeMe() {}
@@ -66,6 +63,8 @@ private:
 		pairContainer subarray1(array.begin(), array.begin() + array.size() / 2);
 		pairContainer subarray2(array.begin() + array.size() / 2, array.end());
 		pairContainer merged;
+		subarray1 = mergeSort(subarray1);
+		subarray2 = mergeSort(subarray2);
 		typename pairContainer::const_iterator it1 = subarray1.begin();
 		typename pairContainer::const_iterator it2 = subarray2.begin();
 		while (it1 != subarray1.end() && it2 != subarray2.end()) {
@@ -95,28 +94,34 @@ private:
 			mainChain.push_back(std::make_pair(std::make_pair('a', i), it->first));
 			pend.push_back(std::make_pair(std::make_pair('b', i), it->second));
 		}
-		typename chainContainer::iterator pendBegin = pend.begin();
-		std::advance(pendBegin, 1);
-		std::rotate(pend.begin(), pendBegin, pend.end());
+		if (pend[0].first.second != 0)
+		{
+			typename chainContainer::iterator pendBegin = pend.begin();
+			std::advance(pendBegin, 1);
+			std::rotate(pend.begin(), pendBegin, pend.end());
+		}
 	}
 
 	void insertionSort() {
-		int j2 = 0;
-		int j1 = 0;
-		int j = 1;
-		while (pend.size() >= 1) {
+		unsigned int	j2 = 0;
+		unsigned int	j1 = 0;
+		unsigned int	j = 1;
+		unsigned int	size = pend.size() - 1;
+		mainChain.insert(mainChain.begin(), pend[0]);
+		while (size >= j) {
 			insert(j, j1);
 			j2 = j1;
 			j1 = j;
 			j = j1 + 2 * j2;
 		}
+		if (j > size)
+			insert(size, j1);
 	}
 
 	void insert(int j, int j1) {
 		while (j > j1) {
-			std::cout << "debug" << std::endl;
 			for (typename chainContainer::iterator it = mainChain.begin(); it != mainChain.end(); ++it) {
-				if (it->first.second < pend[j].first.second && it->first.first != 'a') {
+				if (it->first.second <= pend[j].first.second || it->first.first != 'a') {
 					if (it->second > pend[j].second) {
 						mainChain.insert(it, pend[j]);
 						break;

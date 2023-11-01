@@ -6,19 +6,20 @@
 #    By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 12:55:54 by pharbst           #+#    #+#              #
-#    Updated: 2023/10/30 15:44:07 by pharbst          ###   ########.fr        #
+#    Updated: 2023/11/01 00:56:18 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PRONAME = FordJohnson
+PRONAME = PmergeMe
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -Iinc
 
-SRCS = main.cpp \
-		
+SRCS	= main.cpp
 
+HEADER	= PmergeMe.hpp
+		
 OBJ_DIR = ./obj/
 
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
@@ -36,7 +37,7 @@ std_all:
 	@$(MAKE) -s $(PRONAME)
 	@printf "$(SETCURUP)$(CLEARLINE)\r$(FPurple)%-21s$(FGreen)$(TICKBOX)$(RESET)\n" "Compiling $(PRONAME)"
 
-$(PRONAME): $(OBJS)
+$(PRONAME): $(OBJS) $(HEADER)
 	$(CC) $(CFLAGS) $(OBJS) -o $(PRONAME)
 
 $(OBJ_DIR)%.o: %.cpp
