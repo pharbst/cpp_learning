@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:10:57 by pharbst           #+#    #+#             */
-/*   Updated: 2023/09/20 16:36:30 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/01 23:23:49 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ Base*	generate(void) {
 		return (new C);
 }
 
+Base*	getUnknown(void) {
+	return (new Unkonwn);
+}
+
 void	identify(Base* p) {
 	if (A* Aptr = dynamic_cast<A*>(p)) {
 		std::cout << "A was created." << std::endl;
@@ -43,18 +47,55 @@ void	identify(Base* p) {
 		std::cout << "C was created." << std::endl;
 		(void)Cptr;
 	}
-	else {
-		std::cout << "Unknown class." << std::endl;
-	}
+	else
+		throw unknownClassException();
 }
 
 void	identify(Base& p) {
-	identify(&p);
+	try {
+		identify(&p);
+	}
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
 }
 
 int		main() {
-	Base*	something = generate();
-	identify(something);
-	identify(*something);
-	delete something;
+	{
+		Base*	something = generate();
+		identify(something);
+		identify(*something);
+		delete something;
+	}
+	{
+		Base*	something = generate();
+		identify(something);
+		identify(*something);
+		delete something;
+	}
+	{
+		Base*	something = generate();
+		identify(something);
+		identify(*something);
+		delete something;
+	}
+	{
+		Base*	something = generate();
+		identify(something);
+		identify(*something);
+		delete something;
+	}
+	{
+		Base*	something = generate();
+		identify(something);
+		identify(*something);
+		delete something;
+	}
+	{
+		Base*	something = getUnknown();
+		// identify(something);
+		identify(*something);
+		delete something;
+	}
+	return 0;
 }
