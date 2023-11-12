@@ -6,13 +6,13 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 00:14:35 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/15 01:25:13 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/12 06:10:18 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-std::stack<double> RPN::_stack;
+std::stack<int> RPN::_stack;
 
 RPN::RPN() {}
 
@@ -49,14 +49,14 @@ int	RPN::calculate(std::string input) {
 		if ((!isOperator(token) && !std::isdigit(token[0])) || token.length() > 1)
 			throw RPN::InvalidExpressionException();
 		else if (!isOperator(token)) {
-			_stack.push(std::stod(token));
+			_stack.push(std::atoi(token.c_str()));
 		}
 		else {
 			if (_stack.size() < 2)
 				throw RPN::InvalidExpressionException();
-			double	b = _stack.top();
+			int	b = _stack.top();
 			_stack.pop();
-			double	a = _stack.top();
+			int	a = _stack.top();
 			_stack.pop();
 			if (token == "+")
 				_stack.push(a + b);

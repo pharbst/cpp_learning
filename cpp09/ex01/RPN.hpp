@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 00:14:42 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/15 01:23:52 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/12 06:09:42 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 # include <iostream>
 # include <sstream>
 # include <stack>
+# include <cstdlib>
 
 class	RPN {
 	private:
-		static std::stack<double>	_stack;
+		static std::stack<int>	_stack;
 		static bool	isOperator(std::string token);
 
 		class InvalidExpressionException : public std::exception {
