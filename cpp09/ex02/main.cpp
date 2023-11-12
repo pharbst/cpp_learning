@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 05:52:27 by pharbst           #+#    #+#             */
-/*   Updated: 2023/11/01 01:47:06 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/12 05:41:56 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv) {
 	// printing statement has to be changed for subject later
 	std::cout << std::endl << std::endl;
 	std::cout << "before: ";
-	for (int i = 0; i < elements; i++) {
+	for (unsigned int i = 0; i < elements; i++) {
 		std::cout << input[i];
 		if (elements - 1 != i)
 			std::cout << ", ";
