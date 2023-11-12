@@ -64,6 +64,9 @@ btc
 RPN
 PmergeMe
 
+# additional files
+input.txt
+
 # Other Files
 *.replace
 *test*
