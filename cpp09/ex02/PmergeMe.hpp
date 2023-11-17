@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 02:28:17 by pharbst           #+#    #+#             */
-/*   Updated: 2023/11/01 01:45:31 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/17 13:47:14 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ public:
 		pairContainer pairs = mergeSort(getPairs(input, elements));
 		createChains(pairs);
 		insertionSort();
+		// std::cout << "comparisons: " << compare << std::endl;
+		// std::cout << "expected around: " << elements * log2(elements) << std::endl;
 		return mainChain;
 	}
-	PmergeMe() {}
+	PmergeMe() : compare(0) {}
 	~PmergeMe() {}
 
 private:
@@ -49,7 +51,7 @@ private:
 					pairs.push_back(std::make_pair(input[i + 1], input[i]));
 			}
 			else if (i < elements)
-				pend.push_back(std::make_pair(std::make_pair('b', i), input[i]));
+				pend.push_back(input[i]);
 		}
 		return pairs;
 	}
@@ -68,6 +70,7 @@ private:
 		typename pairContainer::const_iterator it1 = subarray1.begin();
 		typename pairContainer::const_iterator it2 = subarray2.begin();
 		while (it1 != subarray1.end() && it2 != subarray2.end()) {
+			compare++;
 			if (it1->first < it2->first) {
 				merged.push_back(*it1);
 				++it1;
@@ -91,10 +94,10 @@ private:
 	void createChains(const pairContainer& pairs) {
 		typename pairContainer::const_iterator it = pairs.begin();
 		for (int i = 0; it != pairs.end(); ++it, ++i) {
-			mainChain.push_back(std::make_pair(std::make_pair('a', i), it->first));
-			pend.push_back(std::make_pair(std::make_pair('b', i), it->second));
+			mainChain.push_back(it->first);
+			pend.push_back(it->second);
 		}
-		if (pend[0].first.second != 0)
+		if (pend[0] != 0)
 		{
 			typename chainContainer::iterator pendBegin = pend.begin();
 			std::advance(pendBegin, 1);
@@ -107,7 +110,6 @@ private:
 		unsigned int	j1 = 0;
 		unsigned int	j = 1;
 		unsigned int	size = pend.size() - 1;
-		mainChain.insert(mainChain.begin(), pend[0]);
 		while (size >= j) {
 			insert(j, j1);
 			j2 = j1;
@@ -119,19 +121,30 @@ private:
 	}
 
 	void insert(int j, int j1) {
+		int	magicNum = j + j1;
 		while (j > j1) {
-			for (typename chainContainer::iterator it = mainChain.begin(); it != mainChain.end(); ++it) {
-				if (it->first.second <= pend[j].first.second || it->first.first != 'a') {
-					if (it->second > pend[j].second) {
-						mainChain.insert(it, pend[j]);
-						break;
-					}
-				}
+			typename chainContainer::iterator chunkStart = mainChain.begin();
+			typename chainContainer::iterator chunkEnd = chunkStart + magicNum;
+			typename chainContainer::iterator chunkMid = chunkStart + magicNum / 2;
+			while (chunkEnd - chunkStart > 1)
+			{
+				compare++;
+				if (pend[j] <= *chunkMid)
+					chunkEnd = chunkMid;
+				else
+					chunkStart = chunkMid;
+				chunkMid = chunkStart + (chunkEnd - chunkStart) / 2;
 			}
-			--j;
+			compare++;
+			if (pend[j] <= *chunkMid)
+				mainChain.insert(chunkMid, pend[j]);
+			else
+				mainChain.insert(chunkMid + 1, pend[j]);
+			j--;
 		}
 	}
 
+	int compare;
 	chainContainer pend;
 	chainContainer mainChain;
 };

@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 05:52:27 by pharbst           #+#    #+#             */
-/*   Updated: 2023/11/12 05:41:56 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/17 13:46:46 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,35 @@ int	main(int argc, char **argv) {
 	std::cout << std::endl << std::endl;
 
 	{
-		timer(elements, "std[vector]");
-		PmergeMe<std::vector<std::pair<std::pair<char, int >, int> >, std::vector<std::pair<int, int> > >	VectorMerge;
-		std::vector<std::pair<std::pair<char, int>, int> >	result = VectorMerge.sort(input, elements);
+		PmergeMe<std::vector<int>, std::vector<std::pair<int, int> > >	VectorMerge;
+		std::vector<int>	result = VectorMerge.sort(input, elements);
 		std::cout << "after:  ";
-		for (std::vector<std::pair<std::pair<char, int>, int> >::iterator it = result.begin(); it != result.end(); it++) {
-			std::cout << it->second;
+		for (std::vector<int>::iterator it = result.begin(); it != result.end(); it++) {
+			std::cout << *it;
 			if (it + 1 != result.end())
 				std::cout << ", ";
 			else
 				std::cout << std::endl;
 		}
+	}
+	{
+		timer(elements, "std[vector]");
+		PmergeMe<std::vector<int>, std::vector<std::pair<int, int> > >	VectorMerge;
+		std::vector<int>	result = VectorMerge.sort(input, elements);
+		// std::cout << "after:  ";
+		// for (std::vector<int>::iterator it = result.begin(); it != result.end(); it++) {
+		// 	std::cout << *it;
+		// 	if (it + 1 != result.end())
+		// 		std::cout << ", ";
+		// 	else
+		// 		std::cout << std::endl;
+		// }
 		timer(elements, "std[vector]");
 	}
 
 	{
 		timer(elements, "std[deque]");
-		PmergeMe<std::deque<std::pair<std::pair<char, int>, int> >, std::deque<std::pair<int, int> > >	DequeMerge;
+		PmergeMe<std::deque<int>, std::deque<std::pair<int, int> > >	DequeMerge;
 		DequeMerge.sort(input, elements);
 		timer(elements, "std[deque] ");
 	}
