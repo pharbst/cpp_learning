@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 04:15:01 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/09 11:16:00 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:17:59 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ const char* BitcoinExchange::FileNotFoundException::what() const throw() {
 }
 
 const char*	BitcoinExchange::InvalidDatabaseException::what() const throw() {
-	return "Invalid Format in database or empty database.";
+	return "Date is pre database or empty database.";
 }
 
 std::string	BitcoinExchange::extractDate(const std::string& line) {

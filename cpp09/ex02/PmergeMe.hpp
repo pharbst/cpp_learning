@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 02:28:17 by pharbst           #+#    #+#             */
-/*   Updated: 2023/11/17 13:47:14 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:26:10 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define PMERGEME_HPP
 
 # include <iostream>
-# include <vector>
-# include <list>
 # include <algorithm>
 
 template <typename chainContainer, typename pairContainer>

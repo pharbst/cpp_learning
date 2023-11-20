@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 23:15:59 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/11 20:34:26 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:14:17 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class InvalidArgumentsException;
 bool	init(int argc, std::string& database);
 std::string	extractDate(const std::string& line);
 bool	checkDate(std::string& date);
-int	extractAmount(std::string& line);
+double	extractAmount(std::string& line);
 
 int main(int argc, char **argv) {
 	std::string	database = "./data.csv";
@@ -37,14 +37,21 @@ int main(int argc, char **argv) {
 	// main logic
 	std::cout << "date   |   value" << std::endl;
 	for (std::string line; std::getline(inputFile, line);) {
+		if (line == "Date | Value")
+			continue;
 		std::string	tmp = extractDate(line);
-		int	amount	= extractAmount(line);
+		double	amount	= extractAmount(line);
 		if (tmp.empty())
 			std::cout << "Error: Bad input => " << line << std::endl;
 		else if (checkDate(tmp))
 			std::cout << "Error: impossible date. => " << tmp << std::endl;
 		else if (amount != -1) {
-			std::cout << tmp << " => " << amount << " = " << BitcoinExchange::getExchangeRate(tmp, static_cast<double>(amount)) << std::endl; 
+			try {
+				std::cout << tmp << " => " << amount << " = " << BitcoinExchange::getExchangeRate(tmp, static_cast<double>(amount)) << std::endl; 
+			}
+			catch(std::exception& e){
+				std::cout << "Error: " << e.what() << std::endl;
+			}
 		}
 	}
 }
@@ -91,12 +98,12 @@ bool	checkDate(std::string& date) {
 	return false;
 }
 
-int	extractAmount(std::string& line) {
+double	extractAmount(std::string& line) {
 	size_t	commaPosi = line.find('|');
 	if (commaPosi == std::string::npos)
 		return -1;
 	std::string tmp = line.substr(commaPosi + 1);
-	long	amount = std::atol(tmp.c_str());
+	double amount = std::atof(tmp.c_str());
 	if (amount > INT_MAX) {
 		std::cout << "Error: too large a number." << std::endl;
 		return -1;
@@ -105,7 +112,7 @@ int	extractAmount(std::string& line) {
 		std::cout << "Error: not a positive number." << std::endl;
 		return -1;
 	}
-	return static_cast<int32_t>(amount);
+	return amount;
 }
 
 class InvalidArgumentException : public std::exception {

@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 00:14:17 by pharbst           #+#    #+#             */
-/*   Updated: 2023/10/15 01:26:00 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:19:15 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 	std::string	input = argv[1];
-	std::cout << RPN::calculate(input) << std::endl;
+	try {
+		std::cout << RPN::calculate(input) << std::endl;
+	}
+	catch(std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	return 0;
 }
