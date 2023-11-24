@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
+/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 05:52:27 by pharbst           #+#    #+#             */
-/*   Updated: 2023/11/20 10:25:52 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/24 09:55:25 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,9 @@ int*	ParseInput(char **argv, int elements) {
 }
 
 bool		isNumber(char *str) {
+	std::string tmp = str;
+	if (tmp.length() == 0)
+		return true;
 	for (int i = 0; str[i]; i++) {
 		if (!std::isdigit(str[i]))
 			return true;

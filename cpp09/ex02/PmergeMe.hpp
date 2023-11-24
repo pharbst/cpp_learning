@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
+/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 02:28:17 by pharbst           #+#    #+#             */
-/*   Updated: 2023/11/20 10:26:10 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/11/24 09:52:11 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ private:
 		unsigned int	j1 = 0;
 		unsigned int	j = 1;
 		unsigned int	size = pend.size() - 1;
+		mainChain.insert(mainChain.begin(), pend[0]);
 		while (size >= j) {
 			insert(j, j1);
 			j2 = j1;
@@ -119,7 +120,7 @@ private:
 	}
 
 	void insert(int j, int j1) {
-		int	magicNum = j + j1;
+		int	magicNum = j + j1 + 1;
 		while (j > j1) {
 			typename chainContainer::iterator chunkStart = mainChain.begin();
 			typename chainContainer::iterator chunkEnd = chunkStart + magicNum;
