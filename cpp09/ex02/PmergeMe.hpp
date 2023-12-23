@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 02:28:17 by pharbst           #+#    #+#             */
-/*   Updated: 2023/11/24 09:52:11 by peter            ###   ########.fr       */
+/*   Updated: 2023/12/23 17:21:57 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class PmergeMe {
 public:
 	chainContainer sort(int* input, int elements) {
 		pairContainer pairs = mergeSort(getPairs(input, elements));
-		createChains(pairs);
+		createChains(pairs, elements);
 		insertionSort();
 		// std::cout << "comparisons: " << compare << std::endl;
 		// std::cout << "expected around: " << elements * log2(elements) << std::endl;
@@ -89,13 +89,13 @@ private:
 		return merged;
 	}
 
-	void createChains(const pairContainer& pairs) {
+	void createChains(const pairContainer& pairs, int elements) {
 		typename pairContainer::const_iterator it = pairs.begin();
 		for (int i = 0; it != pairs.end(); ++it, ++i) {
 			mainChain.push_back(it->first);
 			pend.push_back(it->second);
 		}
-		if (pend[0] != 0)
+		if (pend[0] != 0 && elements % 2 == 1)
 		{
 			typename chainContainer::iterator pendBegin = pend.begin();
 			std::advance(pendBegin, 1);
